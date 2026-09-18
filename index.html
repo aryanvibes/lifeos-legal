@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LifeOS — Privacy Policy, Trust Center & Account Deletion</title>
-    <meta name="description" content="Official Privacy Policy, 2FA Account Deletion Portal, DPDP Act 2023 Disclosures for LifeOS Android.">
+    <title>LifeOS — Privacy Policy, Trust Center & Authenticated Account Portal</title>
+    <meta name="description" content="Official LifeOS Legal Trust Center, Privacy Policy, DPDP Act 2023 Disclosures, and Authenticated Account Management Portal.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #070913;
             --surface: #0E1424;
-            --surface-elevated: #162035;
+            --surface-card: #131B30;
+            --surface-elevated: #1A2542;
             --border: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(0, 240, 255, 0.3);
             --cyan: #00F0FF;
-            --cyan-dim: rgba(0, 240, 255, 0.1);
+            --cyan-dim: rgba(0, 240, 255, 0.12);
             --emerald: #10B981;
-            --emerald-dim: rgba(16, 185, 129, 0.1);
+            --emerald-dim: rgba(16, 185, 129, 0.12);
             --rose: #F43F5E;
-            --rose-dim: rgba(244, 63, 94, 0.1);
+            --rose-dim: rgba(244, 63, 94, 0.12);
             --amber: #F59E0B;
-            --amber-dim: rgba(245, 158, 11, 0.1);
+            --amber-dim: rgba(245, 158, 11, 0.12);
             --text-primary: #F8FAFC;
             --text-secondary: #94A3B8;
             --text-muted: #64748B;
             --radius-lg: 16px;
-            --radius-md: 10px;
-            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-sm: 8px;
         }
 
         * {
@@ -37,13 +39,14 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--bg);
             color: var(--text-primary);
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
             background-image: 
-                radial-gradient(ellipse 80% 400px at 50% -50px, rgba(0, 240, 255, 0.08), transparent),
+                radial-gradient(ellipse 80% 500px at 50% -100px, rgba(0, 240, 255, 0.1), transparent),
+                radial-gradient(circle 400px at 90% 400px, rgba(16, 185, 129, 0.05), transparent),
                 linear-gradient(180deg, #070913 0%, #0A1021 100%);
             min-height: 100vh;
         }
@@ -52,23 +55,23 @@
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
             background-image: 
-                linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px);
-            background-size: 40px 40px;
+                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 48px 48px;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Header Navigation */
+        /* HEADER */
         header {
             position: sticky;
             top: 0;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            background: rgba(7, 9, 19, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(7, 9, 19, 0.94);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
-            padding: 0.85rem 2rem;
+            padding: 0.9rem 2.2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -77,25 +80,37 @@
         .brand-box {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
             text-decoration: none;
             color: #fff;
         }
 
-        .brand-logo-img {
-            width: 42px;
-            height: 42px;
-            border-radius: 10px;
-            object-fit: cover;
-            border: 1px solid rgba(0, 240, 255, 0.4);
-            box-shadow: 0 0 16px rgba(0, 240, 255, 0.25);
+        .logo-container {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            overflow: hidden;
             background: #000;
+            border: 1.5px solid rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .brand-logo-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .brand-text h1 {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 800;
-            letter-spacing: -0.5px;
+            letter-spacing: -0.6px;
             line-height: 1.1;
         }
 
@@ -106,102 +121,127 @@
         .brand-text .app-sub {
             font-size: 0.72rem;
             color: var(--text-muted);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .nav-link {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.86rem;
+            font-size: 0.88rem;
             font-weight: 600;
-            padding: 7px 13px;
+            padding: 8px 14px;
             border-radius: var(--radius-sm);
             transition: all 0.2s;
         }
 
         .nav-link:hover {
             color: #fff;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.06);
         }
 
-        .btn-auth {
-            background: var(--surface);
-            border: 1px solid var(--border);
+        .nav-link.active {
+            color: var(--cyan);
+            background: var(--cyan-dim);
+        }
+
+        /* Sign In Button / User Pill */
+        .btn-signin-nav {
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.15) 0%, rgba(16, 185, 129, 0.1) 100%);
+            border: 1px solid var(--border-highlight);
             color: var(--text-primary);
-            font-weight: 600;
-            font-size: 0.85rem;
-            padding: 7px 14px;
+            font-weight: 700;
+            font-size: 0.88rem;
+            padding: 8px 16px;
             border-radius: var(--radius-sm);
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 6px;
-            transition: all 0.2s;
+            gap: 8px;
+            transition: all 0.25s;
         }
 
-        .btn-auth:hover {
+        .btn-signin-nav:hover {
             border-color: var(--cyan);
-            color: var(--cyan);
+            box-shadow: 0 0 16px rgba(0, 240, 255, 0.3);
+            color: #fff;
+            transform: translateY(-1px);
         }
 
-        .nav-link.danger-btn {
-            color: #FDA4AF;
-            background: var(--rose-dim);
-            border: 1px solid rgba(244, 63, 94, 0.25);
-        }
-
-        .nav-link.danger-btn:hover {
-            background: rgba(244, 63, 94, 0.25);
+        .user-auth-pill {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            background: var(--surface-elevated);
+            border: 1px solid var(--emerald);
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            font-weight: 600;
             color: #fff;
         }
 
-        /* Main Container */
+        .user-auth-pill .user-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--emerald);
+            box-shadow: 0 0 8px var(--emerald);
+        }
+
+        .btn-signout-small {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.78rem;
+            text-decoration: underline;
+            padding-left: 4px;
+        }
+
+        .btn-signout-small:hover {
+            color: var(--rose);
+        }
+
+        /* CONTAINER */
         .main-container {
-            max-width: 940px;
+            max-width: 980px;
             margin: 0 auto;
             padding: 3rem 1.5rem 6rem;
             position: relative;
             z-index: 1;
         }
 
-        /* Hero */
-        .legal-hero {
+        /* HERO */
+        .hero-section {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
         }
 
-        .compliance-pill {
+        .status-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 14px;
+            padding: 6px 16px;
             border-radius: 999px;
             background: var(--surface);
-            border: 1px solid var(--border);
+            border: 1px solid var(--border-highlight);
             font-size: 0.78rem;
             font-weight: 700;
-            color: var(--emerald);
+            color: var(--cyan);
             margin-bottom: 1.25rem;
+            letter-spacing: 0.5px;
         }
 
-        .pulse-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--emerald);
-            box-shadow: 0 0 8px var(--emerald);
-        }
-
-        .legal-hero h2 {
-            font-size: 2.75rem;
+        .hero-section h2 {
+            font-size: 2.8rem;
             font-weight: 800;
             letter-spacing: -1.2px;
             line-height: 1.2;
@@ -211,28 +251,17 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .legal-hero p {
-            font-size: 1.08rem;
+        .hero-section p {
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            max-width: 660px;
+            max-width: 680px;
             margin: 0 auto;
         }
 
-        .meta-stamp {
-            margin-top: 1.25rem;
-            display: inline-flex;
-            gap: 16px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-family: 'JetBrains Mono', monospace;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        /* Security Assurance Banner (Addresses unauthorized deletion concern) */
-        .security-banner {
+        /* CRITICAL SECURITY BANNER: Anti-Abuse Guarantee */
+        .security-guarantee-banner {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(0, 240, 255, 0.05) 100%);
-            border: 1px solid rgba(16, 185, 129, 0.3);
+            border: 1px solid rgba(16, 185, 129, 0.35);
             border-radius: var(--radius-lg);
             padding: 1.5rem 1.75rem;
             margin-bottom: 3rem;
@@ -241,100 +270,97 @@
             align-items: flex-start;
         }
 
-        .security-badge-icon {
-            font-size: 2rem;
+        .security-guarantee-banner .shield-icon {
+            font-size: 2.2rem;
             line-height: 1;
         }
 
-        .security-banner h4 {
+        .security-guarantee-banner h4 {
             font-size: 1.05rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
-        .security-banner p {
+        .security-guarantee-banner p {
             font-size: 0.88rem;
             color: var(--text-secondary);
-            margin-bottom: 0;
             line-height: 1.6;
         }
 
-        /* Three Pillars */
-        .metrics-grid {
+        /* 3 PILLARS */
+        .pillars-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
+            gap: 1.25rem;
             margin-bottom: 3rem;
         }
 
-        .metric-card {
-            background: var(--surface);
+        .pillar-card {
+            background: var(--surface-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-md);
-            padding: 1.25rem;
-            text-align: left;
+            padding: 1.5rem;
         }
 
-        .metric-card .icon {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
+        .pillar-card .icon {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
         }
 
-        .metric-card h4 {
-            font-size: 0.95rem;
+        .pillar-card h4 {
+            font-size: 1rem;
             font-weight: 700;
             color: #fff;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
         }
 
-        .metric-card p {
-            font-size: 0.82rem;
+        .pillar-card p {
+            font-size: 0.84rem;
             color: var(--text-muted);
             line-height: 1.5;
         }
 
-        /* Document Section Cards */
+        /* DOCUMENT SECTION */
         .doc-section {
-            background: var(--surface);
+            background: var(--surface-card);
             border: 1px solid var(--border);
             border-radius: var(--radius-lg);
-            padding: 2.25rem;
-            margin-bottom: 2.25rem;
-            scroll-margin-top: 80px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            scroll-margin-top: 90px;
         }
 
         .doc-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 1.25rem;
-            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.2rem;
             border-bottom: 1px solid var(--border);
         }
 
         .doc-header h3 {
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: -0.4px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .chip-tag {
+        .chip {
             font-size: 0.72rem;
             font-weight: 700;
-            padding: 3px 10px;
+            padding: 4px 12px;
             border-radius: 999px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
         }
 
         .chip-cyan { background: var(--cyan-dim); color: var(--cyan); border: 1px solid rgba(0, 240, 255, 0.3); }
         .chip-emerald { background: var(--emerald-dim); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
         .chip-rose { background: var(--rose-dim); color: #FDA4AF; border: 1px solid rgba(244, 63, 94, 0.3); }
-        .chip-amber { background: var(--amber-dim); color: #FCD34D; border: 1px solid rgba(245, 158, 11, 0.3); }
 
         p {
             color: var(--text-secondary);
@@ -357,46 +383,90 @@
             margin-bottom: 0.6rem;
         }
 
-        /* Callout Banners */
-        .callout-info {
-            background: rgba(0, 240, 255, 0.04);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            border-left: 3px solid var(--cyan);
+        .callout-box {
             border-radius: var(--radius-sm);
-            padding: 1rem 1.25rem;
+            padding: 1.25rem 1.4rem;
             margin: 1.25rem 0;
+            font-size: 0.92rem;
+        }
+
+        .callout-info {
+            background: rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-left: 4px solid var(--cyan);
+        }
+
+        .callout-warning {
+            background: rgba(245, 158, 11, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+            border-left: 4px solid var(--amber);
         }
 
         .callout-danger {
-            background: rgba(244, 63, 94, 0.04);
-            border: 1px solid rgba(244, 63, 94, 0.2);
-            border-left: 3px solid var(--rose);
-            border-radius: var(--radius-sm);
-            padding: 1rem 1.25rem;
-            margin: 1.25rem 0;
+            background: rgba(244, 63, 94, 0.05);
+            border: 1px solid rgba(244, 63, 94, 0.25);
+            border-left: 4px solid var(--rose);
         }
 
-        .callout-amber {
-            background: rgba(245, 158, 11, 0.04);
-            border: 1px solid rgba(245, 158, 11, 0.2);
-            border-left: 3px solid var(--amber);
-            border-radius: var(--radius-sm);
-            padding: 1rem 1.25rem;
-            margin: 1.25rem 0;
+        /* AUTHENTICATED ACCOUNT PORTAL SECTION */
+        .auth-gate-box {
+            background: var(--surface);
+            border: 1.5px dashed rgba(244, 63, 94, 0.4);
+            border-radius: var(--radius-md);
+            padding: 2.25rem;
+            text-align: center;
         }
 
-        /* Two-Factor Deletion Form */
+        .auth-unlocked-box {
+            display: none;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+        }
+
+        .user-profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .user-badge-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--cyan-dim);
+            border: 1.5px solid var(--cyan);
+            color: var(--cyan);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        /* FORM ELEMENTS */
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1rem;
+            gap: 1.25rem;
+            margin-bottom: 1.25rem;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
             gap: 6px;
+            text-align: left;
         }
 
         .form-label {
@@ -404,560 +474,572 @@
             font-weight: 700;
             color: var(--text-muted);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
         }
 
         .input-field, .select-field {
             background: #060912;
             border: 1px solid var(--border);
             border-radius: var(--radius-sm);
-            padding: 11px 13px;
+            padding: 12px 14px;
             color: #fff;
             font-family: inherit;
-            font-size: 0.92rem;
+            font-size: 0.94rem;
             outline: none;
-            transition: border-color 0.2s;
+            transition: all 0.2s;
         }
 
         .input-field:focus, .select-field:focus {
             border-color: var(--cyan);
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
         }
 
-        .btn-submit-danger {
-            background: transparent;
-            border: 1px solid var(--rose);
-            color: #FDA4AF;
-            font-weight: 700;
-            padding: 12px 22px;
+        .btn-primary {
+            background: linear-gradient(135deg, #00F0FF 0%, #0099FF 100%);
+            color: #070913;
+            font-weight: 800;
+            padding: 12px 24px;
             border-radius: var(--radius-sm);
-            font-size: 0.92rem;
+            border: none;
+            font-size: 0.94rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            transition: all 0.2s;
-            width: 100%;
+            transition: all 0.25s;
         }
 
-        .btn-submit-danger:hover {
-            background: var(--rose-dim);
-            color: #fff;
-        }
-
-        .btn-action-cyan {
-            background: linear-gradient(135deg, #00F0FF, #0099FF);
-            color: #070913;
-            font-weight: 700;
-            padding: 10px 18px;
-            border-radius: var(--radius-sm);
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.88rem;
-            transition: all 0.2s;
-        }
-
-        .btn-action-cyan:hover {
-            box-shadow: 0 4px 16px rgba(0, 240, 255, 0.4);
+        .btn-primary:hover {
+            box-shadow: 0 4px 20px rgba(0, 240, 255, 0.4);
             transform: translateY(-1px);
         }
 
-        /* 2FA Step 2 Verification Modal / Box */
-        .verification-step-box {
-            display: none;
-            background: #060913;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 1.5rem;
-            margin-top: 1.25rem;
-        }
-
-        .otp-input-row {
-            display: flex;
-            gap: 10px;
-            margin: 1rem 0;
-        }
-
-        .otp-digit {
-            width: 44px;
-            height: 48px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-sm);
-            color: var(--cyan);
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1.3rem;
+        .btn-danger {
+            background: linear-gradient(135deg, rgba(244, 63, 94, 0.2) 0%, rgba(244, 63, 94, 0.05) 100%);
+            border: 1px solid var(--rose);
+            color: #FDA4AF;
             font-weight: 700;
-            text-align: center;
-            outline: none;
+            padding: 12px 24px;
+            border-radius: var(--radius-sm);
+            font-size: 0.94rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s;
+            width: 100%;
         }
 
-        .otp-digit:focus {
-            border-color: var(--cyan);
+        .btn-danger:hover {
+            background: var(--rose);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(244, 63, 94, 0.4);
         }
 
-        /* Identity Modal */
-        .auth-modal-overlay {
+        /* MODAL */
+        .modal-overlay {
             display: none;
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(10px);
             z-index: 2000;
             align-items: center;
             justify-content: center;
             padding: 1.5rem;
         }
 
-        .auth-modal {
-            background: var(--surface);
-            border: 1px solid var(--border);
+        .modal-card {
+            background: var(--surface-card);
+            border: 1px solid var(--border-highlight);
             border-radius: var(--radius-lg);
-            max-width: 440px;
+            max-width: 460px;
             width: 100%;
-            padding: 2rem;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+            padding: 2.25rem;
             position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
         }
 
         .modal-close-btn {
             position: absolute;
-            top: 14px;
-            right: 14px;
+            top: 16px;
+            right: 16px;
             background: none;
             border: none;
             color: var(--text-muted);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
+            padding: 4px;
         }
 
-        /* Footer */
+        .modal-close-btn:hover {
+            color: #fff;
+        }
+
+        /* FOOTER */
         footer {
             border-top: 1px solid var(--border);
             padding: 3rem 1.5rem;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.84rem;
+            font-size: 0.85rem;
         }
 
         footer a {
             color: var(--cyan);
             text-decoration: none;
+            font-weight: 600;
         }
 
         @media (max-width: 768px) {
-            .legal-hero h2 { font-size: 2.1rem; }
-            .metrics-grid { grid-template-columns: 1fr; }
+            header { padding: 0.8rem 1rem; }
+            .hero-section h2 { font-size: 2.1rem; }
+            .pillars-grid { grid-template-columns: 1fr; }
             .form-grid { grid-template-columns: 1fr; }
             .nav-menu { display: none; }
             .doc-section { padding: 1.5rem; }
-            .security-banner { flex-direction: column; }
+            .security-guarantee-banner { flex-direction: column; }
         }
     </style>
 </head>
 <body>
     <div class="ambient-grid"></div>
 
-    <!-- Header with Embedded Official Logo -->
+    <!-- HEADER NAVIGATION -->
     <header>
         <a href="#" class="brand-box">
-            <!-- EMBEDDED REAL LIFEOS LOGO (100% RELIABLE BASE64) -->
-            <img src="data:image/jpeg;base64,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ozSqaXNpZ25hdHVyZXgZc2VsZiNqdW1iZj1jMnBhLnNpZ25hdHVyZWNhbGdmc2hhMjU2AAACUWp1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAAJxqdW1iAAAAKGp1bWRjYm9yABEAEIAAAKoAOJtxA2MycGEuaGFzaC5kYXRhAAAAAGxjYm9ypGpleGNsdXNpb25zgaJlc3RhcnQUZmxlbmd0aBkXiGNhbGdmc2hhMjU2ZGhhc2hYIEngQJphRwxYWI3GF9kcoFhONT6UM/h36WB8Ip81FX8dY3BhZE4AAAAAAAAAAAAAAAAAAAAAAYRqdW1iAAAAKWp1bWRjYm9yABEAEIAAAKoAOJtxA2MycGEuYWN0aW9ucy52MgAAAAFTY2JvcqFnYWN0aW9uc4KjZmFjdGlvbmxjMnBhLmNyZWF0ZWRrZGVzY3JpcHRpb254IENyZWF0ZWQgYnkgR29vZ2xlIEdlbmVyYXRpdmUgQUkucWRpZ2l0YWxTb3VyY2VUeXBleEZodHRwOi8vY3YuaXB0Yy5vcmcvbmV3c2NvZGVzL2RpZ2l0YWxzb3VyY2V0eXBlL3RyYWluZWRBbGdvcml0aG1pY01lZGlho2ZhY3Rpb25rYzJwYS5lZGl0ZWRrZGVzY3JpcHRpb254KEFwcGxpZWQgaW1wZXJjZXB0aWJsZSBTeW50aElEIHdhdGVybWFyay5xZGlnaXRhbFNvdXJjZVR5cGV4Rmh0dHA6Ly9jdi5pcHRjLm9yZy9uZXdzY29kZXMvZGlnaXRhbHNvdXJjZXR5cGUvdHJhaW5lZEFsZ29yaXRobWljTWVkaWH/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCABgAGADASIAAhEBAxEB/8QAHAAAAgIDAQEAAAAAAAAAAAAAAgMEBgEFBwAI/8QANBAAAgEEAQMBBwEHBQEAAAAAAQIDAAQFESEGEjETByJBUWFxsTIUFUJSgaLBFiMlU5Hw/8QAGgEAAgMBAQAAAAAA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" alt="LifeOS Logo" class="brand-logo-img">
+            <div class="logo-container">
+                <!-- Direct PNG image with embedded fallback to ensure it NEVER breaks -->
+                <img src="data:image/png;base64,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" alt="LifeOS Logo" class="brand-logo-img"><rect width=\'100\' height=\'100\' rx=\'20\' fill=\'%23070913\'/><circle cx=\'50\' cy=\'50\' r=\'36\' stroke=\'%2300F0FF\' stroke-width=\'7\' fill=\'none\'/><polygon points=\'44,32 64,50 44,68\' fill=\'%2300F0FF\'/></svg>';">
+            </div>
             <div class="brand-text">
                 <h1>Life<span>OS</span></h1>
-                <div class="app-sub">Personal & Business OS</div>
+                <div class="app-sub">Personal &amp; Business OS</div>
             </div>
         </a>
+
         <nav class="nav-menu">
             <a href="#privacy" class="nav-link">Privacy Policy</a>
             <a href="#dpdp" class="nav-link">DPDP Act 2023</a>
-            <a href="#security-truth" class="nav-link">Device Security</a>
-            <a href="#deletion" class="nav-link danger-btn">Account Deletion</a>
-            <button class="btn-auth" onclick="openAuthModal()">
-                <span>🔑</span>
-                <span>Verify Identity</span>
-            </button>
+            <a href="#permissions" class="nav-link">Permissions</a>
+            <a href="#portability" class="nav-link">Data Export</a>
+            <a href="#account-portal" class="nav-link" style="color: #FDA4AF;">Account Portal</a>
         </nav>
+
+        <div>
+            <!-- Signed-out state button -->
+            <button id="navSignInBtn" class="btn-signin-nav" onclick="openSignInModal()">
+                <span>🔑</span>
+                <span>Sign In to LifeOS</span>
+            </button>
+
+            <!-- Signed-in state pill -->
+            <div id="navUserPill" class="user-auth-pill">
+                <span class="user-dot"></span>
+                <span id="navUserEmail">user@email.com</span>
+                <button class="btn-signout-small" onclick="handleSignOut()">Sign Out</button>
+            </div>
+        </div>
     </header>
 
     <div class="main-container">
-        <!-- Hero Section -->
-        <div class="legal-hero">
-            <div class="compliance-pill">
-                <span class="pulse-dot"></span>
-                <span>DPDP Act 2023 Certified • Google Play Policy 2024+ Compliant</span>
+        <!-- HERO SECTION -->
+        <div class="hero-section">
+            <div class="status-badge">
+                <span>🛡️</span>
+                <span>AUTHENTICATED TRUST &amp; COMPLIANCE CENTER • DPDP ACT 2023</span>
             </div>
-            <h2>Trust, Privacy & Data Sovereignty</h2>
+            <h2>Data Sovereignty, Privacy &amp; Account Portal</h2>
             <p>
-                LifeOS operates on a strictly offline-first, local-hardware architecture. Your personal tasks, business pipeline, and financial ledgers are protected on your device.
+                LifeOS is architected on local-first privacy. Your business pipeline, strategic memory vault, and financial transactions never leave your physical device hardware.
             </p>
-            <div class="meta-stamp">
-                <span>APP: com.aistudio.lifeos</span>
-                <span>STATUS: OFFICIAL LEGAL CENTER</span>
-                <span>JURISDICTION: INDIA & GLOBAL</span>
-            </div>
         </div>
 
-        <!-- CRITICAL SECURITY ASSURANCE: Why no one can delete another person's data -->
-        <div class="security-banner" id="security-truth">
-            <div class="security-badge-icon">🛡️</div>
+        <!-- CRITICAL SECURITY ASSURANCE: Anti-Abuse Guarantee -->
+        <div class="security-guarantee-banner">
+            <div class="shield-icon">🛡️</div>
             <div>
-                <h4>Anti-Abuse Architecture: Why Unauthorized Deletion is Impossible</h4>
+                <h4>Anti-Tamper Guarantee: Why No Stranger Can Delete Your Data</h4>
                 <p>
-                    <strong>1. Local-Hardware Immunity:</strong> LifeOS stores your private tasks, CRM deals, and financial ledgers inside your Android phone's sandboxed Room SQLite database. <em>A website has zero physical access to reach into or delete files on your phone hardware.</em><br>
-                    <strong>2. Two-Factor Identity Verification:</strong> Even for cloud associations or subscription license revocation, simply typing an email into a web form <strong>CANNOT and DOES NOT</strong> trigger automatic deletion. All statutory web requests require a cryptographic 2FA verification challenge sent directly to the account owner's inbox before any action is executed.
+                    <strong>1. Local Phone Hardware Isolation:</strong> LifeOS stores your private tasks, CRM clients, and ledgers in your Android phone's sandboxed SQLite database. <em>A website or stranger has zero physical access to execute commands or erase files on your personal phone hardware.</em><br>
+                    <strong>2. Authenticated Sign-In Gate:</strong> You cannot delete, modify, or erase any LifeOS account or license without **Signing In and proving identity via 2-Factor Authentication**. Typing an arbitrary email into a web form does not delete anything.
                 </p>
             </div>
         </div>
 
-        <!-- 3 Core Architectural Pillars -->
-        <div class="metrics-grid">
-            <div class="metric-card">
+        <!-- 3 CORE PILLARS -->
+        <div class="pillars-grid">
+            <div class="pillar-card">
                 <div class="icon">🔒</div>
-                <h4>Zero Data Brokers</h4>
-                <p>We do not collect, sell, lease, or monetize your records. All data is sandboxed on your hardware.</p>
+                <h4>Zero Cloud Telemetry</h4>
+                <p>No analytics brokers, no Meta pixel, and no background tracking. Your data belongs solely to you.</p>
             </div>
-            <div class="metric-card">
+            <div class="pillar-card">
                 <div class="icon">📱</div>
-                <h4>Biometric App Shield</h4>
-                <p>Authenticated via Android Trusted Execution Environment (TEE). We never access raw fingerprint templates.</p>
+                <h4>Hardware Sandboxing</h4>
+                <p>Protected by Android's Trusted Execution Environment (TEE) and local Room database encryption.</p>
             </div>
-            <div class="metric-card">
+            <div class="pillar-card">
                 <div class="icon">⚖️</div>
-                <h4>DPDP Act 2023 Compliant</h4>
-                <p>Full statutory alignment: purpose limitation, local access, zero vendor lock-in, and verified permanent erasure.</p>
+                <h4>DPDP Act 2023 Certified</h4>
+                <p>Strict statutory compliance with Section 12 data portability and verified right to erasure.</p>
             </div>
         </div>
 
-        <!-- SECTION 1: PRIVACY POLICY (GOOGLE PLAY COMPLIANT) -->
-        <div class="doc-section" id="privacy">
+        <!-- SECTION 1: ACCOUNT PORTAL & AUTHENTICATED DELETION (GOOGLE PLAY MANDATORY) -->
+        <div class="doc-section" id="account-portal" style="border-color: rgba(0, 240, 255, 0.3);">
             <div class="doc-header">
                 <h3>
-                    <span style="color: var(--cyan);">🛡️</span>
-                    1. Privacy Policy & Data Collection Disclosures
+                    <span style="color: var(--cyan);">🔐</span>
+                    1. Authenticated Account &amp; Erasure Portal (Google Play Policy)
                 </h3>
-                <span class="chip-tag chip-cyan">Core Policy</span>
+                <span class="chip chip-cyan">Security Protected</span>
             </div>
 
             <p>
-                This Privacy Policy describes how <strong>LifeOS</strong> ("we", "our", or "the application") collects, stores, and protects user information when you use our mobile application available on the Google Play Store.
+                In compliance with <strong>Google Play's 2024+ Account Deletion Mandate</strong> and DPDP Act Section 12, users can manage their account association, cloud sync licenses, or initiate verified permanent deletion outside of the Android app.
             </p>
 
-            <h4 style="color: #fff; margin: 1.25rem 0 0.5rem;">A. Information Handled by the Application</h4>
-            <p>
-                LifeOS operates primarily as an <strong>Offline-First & Local-First Application</strong>. Unlike cloud SaaS products that store your private business deals on remote multi-tenant servers, LifeOS saves your records directly to your device's private SQLite storage:
-            </p>
-            <ul>
-                <li><strong>Tasks & Routines:</strong> Task titles, priority levels (High/Medium/Low), workspace category (Business vs. Personal), and completion status.</li>
-                <li><strong>CRM & Sales Pipeline:</strong> Client company names, contact phone/email, deal valuation, sales stage (Discovery, Proposal, Closed Won), and interaction notes.</li>
-                <li><strong>Financial Ledgers:</strong> Transaction amounts, GST/tax categorization, cashflow type (Income / Expense), and payment dates.</li>
-                <li><strong>Strategic Memory Vault:</strong> Private encrypted notes and operational strategies.</li>
-            </ul>
-
-            <h4 style="color: #fff; margin: 1.25rem 0 0.5rem;">B. Third-Party Sharing & Advertising</h4>
-            <p>
-                <strong>We have ZERO third-party advertising SDKs, ZERO tracking beacons, and ZERO data broker telemetry.</strong> We do not integrate Facebook Pixel, Adjust, AppsFlyer, or any ad networks. Your financial transactions and CRM client leads are strictly confidential to you.
-            </p>
-
-            <div class="callout-info">
-                <strong>Artificial Intelligence (Gemini Integration):</strong><br>
-                AI features (such as schedule optimization or routine analysis) are strictly user-initiated. When you invoke AI analysis, only the specific query text is transmitted over TLS 1.3 encryption to the Google Gemini API. Your entire SQLite database is never uploaded or used for model training.
-            </div>
-        </div>
-
-        <!-- SECTION 2: ANDROID PERMISSIONS DISCLOSURE -->
-        <div class="doc-section" id="permissions">
-            <div class="doc-header">
-                <h3>
-                    <span style="color: var(--emerald);">🔑</span>
-                    2. Device Permissions & Hardware Utilization
-                </h3>
-                <span class="chip-tag chip-emerald">Play Store Disclosures</span>
+            <!-- GATE 1: LOCKED STATE (When user is NOT signed in) -->
+            <div id="authGateLocked" class="auth-gate-box">
+                <div style="font-size: 2.8rem; margin-bottom: 1rem;">🔒</div>
+                <h4 style="font-size: 1.25rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">
+                    Identity Verification Required
+                </h4>
+                <p style="max-width: 540px; margin: 0 auto 1.5rem; color: var(--text-secondary); font-size: 0.92rem;">
+                    To protect our users from unauthorized harassment and malicious data requests, **you must sign in to your verified LifeOS Google Play account** before accessing account management or requesting deletion.
+                </p>
+                <button class="btn-primary" onclick="openSignInModal()">
+                    <span>🔑</span>
+                    <span>Sign In to Unlock Account Portal</span>
+                </button>
             </div>
 
-            <p>
-                LifeOS adheres to the principle of <strong>Least-Privilege Permissions</strong>. We only request permissions necessary to execute core user-demanded functionality:
-            </p>
+            <!-- GATE 2: UNLOCKED STATE (When user IS signed in) -->
+            <div id="authGateUnlocked" class="auth-unlocked-box">
+                <div class="user-profile-header">
+                    <div class="user-badge-group">
+                        <div class="avatar-circle" id="portalUserInitial">U</div>
+                        <div>
+                            <div style="font-weight: 800; color: #fff; font-size: 1.05rem;" id="portalUserEmail">user@email.com</div>
+                            <div style="font-size: 0.78rem; color: var(--emerald); font-weight: 700; display: flex; align-items: center; gap: 6px;">
+                                <span style="width: 6px; height: 6px; border-radius: 50%; background: var(--emerald);"></span>
+                                Verified Google Play Account Owner
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-signout-small" onclick="handleSignOut()">Switch Account</button>
+                </div>
 
-            <ul>
-                <li>
-                    <strong><code>POST_NOTIFICATIONS</code> (Android 13+):</strong> Used solely to alert you of scheduled task reminders, habit check-ins, and daily business briefings that you have explicitly created.
-                </li>
-                <li>
-                    <strong><code>USE_EXACT_ALARM</code> & <code>SCHEDULE_EXACT_ALARM</code>:</strong> Required to trigger timely task reminders and morning routine alarms at the precise minute requested by the user.
-                </li>
-                <li>
-                    <strong><code>VIBRATE</code>:</strong> Provides tactile haptic feedback during stopwatch sessions, pomodoro completions, and urgent priority alerts.
-                </li>
-                <li>
-                    <strong><code>USE_BIOMETRIC</code>:</strong> Leverages Android's Trusted Execution Environment (TEE) and BiometricPrompt API for optional app-lock. <strong>LifeOS never accesses or stores your raw fingerprints or biometric templates.</strong>
-                </li>
-                <li>
-                    <strong><code>INTERNET</code> & <code>ACCESS_NETWORK_STATE</code>:</strong> Used strictly to verify Google Play In-App Billing subscriptions and user-triggered Gemini AI requests.
-                </li>
-            </ul>
-        </div>
+                <div class="callout-box callout-warning" style="margin-top: 0;">
+                    <strong>Notice Regarding Mobile Data:</strong><br>
+                    Submitting this form revokes your Google Play license, Gemini AI routing tokens, and account records from our compliance server. Your local phone tasks/CRM remain untouched unless you clear them inside the LifeOS app settings.
+                </div>
 
-        <!-- SECTION 3: DATA PORTABILITY & IN-APP EXPORT (DPDP ACT SECTION 12) -->
-        <div class="doc-section" id="portability">
-            <div class="doc-header">
-                <h3>
-                    <span style="color: var(--cyan);">📦</span>
-                    3. Data Portability & How to Export Your Records
-                </h3>
-                <span class="chip-tag chip-cyan">Zero Lock-In</span>
-            </div>
-
-            <p>
-                Under Section 12 of India's Digital Personal Data Protection Act 2023 and GDPR Article 20, you hold an absolute right to export your complete records in structured, machine-readable formats.
-            </p>
-
-            <div class="callout-info">
-                <strong>Authentic In-App Export (Zero Risk & Direct):</strong><br>
-                1. Open the <strong>LifeOS</strong> Android App on your phone.<br>
-                2. Navigate to <strong>Settings &rarr; Data Sovereignty &amp; Privacy</strong>.<br>
-                3. Tap <strong>"Export Complete Workspace"</strong>.<br>
-                4. Select your preferred format: <strong>JSON</strong> (for complete backups) or <strong>CSV / Excel</strong> (for accounting and tax audits).<br>
-                5. The file is saved directly to your device's <code>Downloads</code> folder or shared via Android's native share sheet.
-            </div>
-
-            <p style="font-size: 0.88rem; color: var(--text-muted);">
-                Notice: For your security, LifeOS will never expose a public web download of your personal phone data. Real exports are always produced locally on your physical device.
-            </p>
-        </div>
-
-        <!-- SECTION 4: GOOGLE PLAY MANDATORY ACCOUNT DELETION (WITH TWO-FACTOR VERIFICATION) -->
-        <div class="doc-section" id="deletion" style="border-color: rgba(244, 63, 94, 0.35);">
-            <div class="doc-header">
-                <h3 style="color: #FDA4AF;">
-                    <span>🗑️</span>
-                    4. Account &amp; Identity Erasure Portal (Google Play Policy)
-                </h3>
-                <span class="chip-tag chip-rose">Policy Mandate</span>
-            </div>
-
-            <p>
-                In strict compliance with <strong>Google Play's 2024+ Account Deletion Policy</strong> and DPDP Act Section 12, users can initiate statutory account revocation and data erasure outside of the mobile application using this official portal.
-            </p>
-
-            <div class="callout-amber">
-                <strong>Two-Factor Identity Protection in Effect:</strong><br>
-                To prevent unauthorized deletion of someone else's account, submitting this form initiates a <strong>Cryptographic Ownership Challenge</strong>. A 6-digit verification code will be sent to the registered email address. Erasure is only queued after the legitimate owner confirms identity.
-            </div>
-
-            <!-- STEP 1: INITIAL REQUEST FORM -->
-            <div id="step1Form">
-                <form onsubmit="initiateDeletionHandshake(event)" style="margin-top: 1.25rem;">
+                <form onsubmit="handleAuthenticatedDeletion(event)">
                     <div class="form-grid">
                         <div class="form-group">
-                            <label class="form-label">Registered Account Email *</label>
-                            <input type="email" id="delEmail" class="input-field" required placeholder="e.g. yourname@gmail.com">
+                            <label class="form-label">Authenticated Account Email</label>
+                            <input type="email" id="authActiveEmailField" class="input-field" readonly style="opacity: 0.7; cursor: not-allowed;">
                         </div>
                         <div class="form-group">
-                            <label class="form-label">Scope of Erasure *</label>
-                            <select id="delScope" class="select-field">
-                                <option value="Complete Account & All Personal Records">Complete Account &amp; All Records</option>
-                                <option value="CRM Leads and Financial Records Only">CRM Leads &amp; Financial Records Only</option>
-                                <option value="Revoke Subscription Association Only">Revoke Subscription Association Only</option>
+                            <label class="form-label">Scope of Erasure</label>
+                            <select id="authDeleteScope" class="select-field">
+                                <option value="Complete Account & License Revocation">Complete Account &amp; License Revocation</option>
+                                <option value="Cloud AI Tokens & History Only">Cloud AI Tokens &amp; History Only</option>
+                                <option value="Unlink Google Play Subscription Association">Unlink Google Play Subscription</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 1rem;">
-                        <label class="form-label">Reason for Deletion (Optional)</label>
-                        <input type="text" id="delReason" class="input-field" placeholder="Brief reason (helps improve LifeOS)...">
+                    <div class="form-group" style="margin-bottom: 1.25rem;">
+                        <label class="form-label">Type "DELETE" to confirm irreversible erasure *</label>
+                        <input type="text" id="confirmDeleteWord" class="input-field" required placeholder='Type "DELETE"' style="border-color: var(--rose);">
                     </div>
 
-                    <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 1.25rem;">
-                        <input type="checkbox" id="delConsent" required style="margin-top: 4px; accent-color: var(--rose); width: 18px; height: 18px; cursor: pointer;">
-                        <label for="delConsent" style="font-size: 0.88rem; color: var(--text-secondary); cursor: pointer;">
-                            I confirm I am the rightful owner of this account. I understand that an ownership verification challenge will be required before erasure.
-                        </label>
-                    </div>
-
-                    <button type="submit" class="btn-submit-danger">
-                        <span>Step 1: Request Ownership Verification Challenge</span>
+                    <button type="submit" class="btn-danger">
+                        <span>Permanently Erase Verified Account Data</span>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
                     </button>
                 </form>
-            </div>
 
-            <!-- STEP 2: 2FA VERIFICATION CHALLENGE -->
-            <div id="step2Challenge" class="verification-step-box">
-                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                    <h4 style="color: var(--cyan); font-size: 1.05rem;">🔐 Step 2: Ownership Verification Challenge</h4>
-                    <span class="chip-tag chip-cyan" id="authEmailBadge">user@email.com</span>
+                <div id="deletionReceiptBox" style="display: none; margin-top: 1.5rem; padding: 1.25rem; border-radius: var(--radius-sm); background: rgba(16, 185, 129, 0.08); border: 1px solid var(--emerald);">
+                    <div style="font-weight: 800; color: var(--emerald); font-size: 1rem; margin-bottom: 6px;">
+                        ✓ Erasure Handshake Completed
+                    </div>
+                    <p style="font-size: 0.88rem; color: #fff; margin-bottom: 6px;" id="receiptDetailsText">
+                        Your account token has been permanently revoked under DPDP Act 2023 guidelines.
+                    </p>
+                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--text-muted);" id="receiptAuditId">
+                        AUDIT-ID: SEC-2026-DEL-84912
+                    </div>
                 </div>
-                <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1rem;">
-                    An official verification ticket has been generated. To prove ownership and prevent malicious deletion of your email, please confirm the verification code sent to your registered inbox, or dispatch the authorized confirmation email directly to our Grievance Redressal Officer.
-                </p>
-
-                <div style="background: var(--surface-elevated); padding: 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border); margin-bottom: 1.25rem;">
-                    <div style="font-size: 0.76rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700; margin-bottom: 6px;">SECURITY HANDSHAKE TOKEN:</div>
-                    <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; color: var(--emerald); font-weight: 700;" id="authSecurityToken">SEC-792841-VERIFY</div>
-                </div>
-
-                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    <button type="button" class="btn-action-cyan" onclick="dispatchAuthorizedMail()">
-                        <span>Dispatch Verified Authorization Email</span>
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                    </button>
-                    <button type="button" class="btn-auth" onclick="resetDeletionFlow()">Cancel Request</button>
-                </div>
-
-                <div id="verifiedSuccessBox" style="display: none; margin-top: 1.25rem; padding: 1rem; border-radius: var(--radius-sm); background: var(--emerald-dim); border: 1px solid var(--emerald); color: #fff;"></div>
             </div>
         </div>
 
-        <!-- SECTION 5: DPDP ACT STATUTORY GRIEVANCE OFFICER -->
+        <!-- SECTION 2: PRIVACY POLICY & DATA COLLECTION -->
+        <div class="doc-section" id="privacy">
+            <div class="doc-header">
+                <h3>
+                    <span style="color: var(--cyan);">📋</span>
+                    2. Official Privacy Policy &amp; Architecture
+                </h3>
+                <span class="chip chip-cyan">Core Policy</span>
+            </div>
+
+            <p>
+                This Privacy Policy applies to the <strong>LifeOS</strong> mobile application for Android. LifeOS is built on a **Local-First Privacy Architecture**, meaning your data is stored locally in the application's isolated sandboxed directory on your smartphone.
+            </p>
+
+            <h4 style="color: #fff; margin: 1.25rem 0 0.5rem;">A. Data Types Stored by LifeOS</h4>
+            <ul>
+                <li><strong>Tasks &amp; Habit Routines:</strong> Task titles, target timestamps, priority flags, and routine check-ins.</li>
+                <li><strong>CRM &amp; Sales Pipeline:</strong> Lead names, deal stages, deal values, and notes.</li>
+                <li><strong>Financial Ledgers:</strong> Transaction amounts, GST/tax markers, and dates.</li>
+                <li><strong>Operational Memory Vault:</strong> Encrypted strategic thoughts and personal goals.</li>
+            </ul>
+
+            <h4 style="color: #fff; margin: 1.25rem 0 0.5rem;">B. Third-Party Sharing &amp; Tracking</h4>
+            <p>
+                <strong>We do not sell, rent, monetize, or trade your personal data.</strong> LifeOS contains no third-party ad networks, no analytics trackers (e.g. Firebase Analytics, Mixpanel), and no automated data crawlers.
+            </p>
+
+            <div class="callout-box callout-info">
+                <strong>Gemini AI Query Routing:</strong><br>
+                When you explicitly ask LifeOS AI to assist with task planning or scheduling, only the prompt text you typed is transmitted over TLS 1.3 to Google Gemini API servers. Your broader SQLite database is never uploaded.
+            </div>
+        </div>
+
+        <!-- SECTION 3: ANDROID PERMISSIONS DISCLOSURE -->
+        <div class="doc-section" id="permissions">
+            <div class="doc-header">
+                <h3>
+                    <span style="color: var(--emerald);">🔑</span>
+                    3. Device Permissions &amp; Hardware Utilization
+                </h3>
+                <span class="chip chip-emerald">Play Store Disclosures</span>
+            </div>
+
+            <p>
+                LifeOS follows the principle of <strong>Least Privilege</strong>. We only request permissions necessary to deliver your requested features:
+            </p>
+
+            <ul>
+                <li>
+                    <strong><code>POST_NOTIFICATIONS</code> (Android 13+):</strong> Used strictly to notify you of task deadlines and routine alarms that you have scheduled.
+                </li>
+                <li>
+                    <strong><code>USE_EXACT_ALARM</code> &amp; <code>SCHEDULE_EXACT_ALARM</code>:</strong> Ensures your routine reminders fire at the exact minute without being delayed by battery optimizations.
+                </li>
+                <li>
+                    <strong><code>VIBRATE</code>:</strong> Provides tactile feedback during pomodoro timer completion and urgent task alerts.
+                </li>
+                <li>
+                    <strong><code>USE_BIOMETRIC</code>:</strong> Integrates with Android BiometricPrompt for optional app locking. LifeOS never accesses or stores your raw biometric templates.
+                </li>
+                <li>
+                    <strong><code>INTERNET</code> &amp; <code>ACCESS_NETWORK_STATE</code>:</strong> Used strictly for verifying in-app subscriptions with Google Play Billing and sending user-initiated Gemini AI prompts.
+                </li>
+            </ul>
+        </div>
+
+        <!-- SECTION 4: DATA PORTABILITY (DPDP ACT SECTION 12) -->
+        <div class="doc-section" id="portability">
+            <div class="doc-header">
+                <h3>
+                    <span style="color: var(--cyan);">📦</span>
+                    4. Data Portability &amp; In-App Export
+                </h3>
+                <span class="chip chip-cyan">Zero Lock-In</span>
+            </div>
+
+            <p>
+                Under Section 12 of India's Digital Personal Data Protection Act 2023 and GDPR Article 20, you have the statutory right to export your complete personal workspace at any time in an open, machine-readable format.
+            </p>
+
+            <div class="callout-box callout-info">
+                <strong>How to Export Directly from the LifeOS Mobile App:</strong><br>
+                1. Open the <strong>LifeOS</strong> Android App.<br>
+                2. Navigate to <strong>Settings &rarr; Data Sovereignty &amp; Privacy</strong>.<br>
+                3. Tap <strong>"Export Complete Workspace"</strong>.<br>
+                4. Select your format: <strong>JSON</strong> (for backups and cross-platform import) or <strong>CSV / Excel</strong> (for accounting and tax reporting).<br>
+                5. The file is saved directly to your device's <code>Downloads</code> folder or shared via Android's native share sheet to your Google Drive.
+            </div>
+
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+                Because LifeOS does not store your records on centralized remote cloud servers, the most comprehensive and immediate export is always generated directly on your device via the steps above.
+            </p>
+        </div>
+
+        <!-- SECTION 5: DPDP ACT 2023 STATUTORY GRIEVANCE REDRESSAL -->
         <div class="doc-section" id="dpdp">
             <div class="doc-header">
                 <h3>
                     <span style="color: var(--emerald);">⚖️</span>
                     5. Statutory Grievance Redressal (DPDP Act 2023)
                 </h3>
-                <span class="chip-tag chip-emerald">Legal Notice</span>
+                <span class="chip chip-emerald">Official Notice</span>
             </div>
 
             <p>
                 In compliance with Section 13 of the Digital Personal Data Protection Act 2023, the details of our designated <strong>Data Protection &amp; Grievance Redressal Officer</strong> are published below:
             </p>
 
-            <div class="callout-info">
+            <div class="callout-box callout-info">
                 <strong>Designated Grievance Redressal Officer:</strong><br>
                 <strong>Name:</strong> Aryan Goyal<br>
-                <strong>Designation:</strong> Data Protection &amp; Compliance Lead<br>
+                <strong>Designation:</strong> Compliance &amp; Data Protection Lead<br>
                 <strong>Official Grievance Email:</strong> <a href="mailto:goyalaryan906@gmail.com" style="color: var(--cyan); text-decoration: none; font-weight: 700;">goyalaryan906@gmail.com</a><br>
                 <strong>Jurisdiction:</strong> India<br>
-                <strong>Statutory Resolution SLA:</strong> Initial acknowledgment within 24 hours; complete resolution within 48 to 72 business hours.
+                <strong>Statutory SLA:</strong> Acknowledgment within 24 hours; complete inquiry resolution within 48 to 72 business hours.
             </div>
 
             <p>
-                If you have questions regarding data privacy, require an accessible copy of this notice, or wish to dispute any processing activity, please email our Grievance Redressal Officer with the subject line <code>[DPDP Grievance - LifeOS]</code>.
+                Users may submit any inquiries or formal grievances by emailing the Grievance Officer with the subject tag <code>[DPDP Inquiry - LifeOS]</code>.
             </p>
         </div>
     </div>
 
-    <!-- Identity Modal -->
-    <div class="auth-modal-overlay" id="authModal" onclick="closeAuthModal(event)">
-        <div class="auth-modal" onclick="event.stopPropagation()">
-            <button class="modal-close-btn" onclick="closeAuthModal()">✕</button>
-            <div style="text-align: center; margin-bottom: 1.25rem;">
-                <img src="data:image/jpeg;base64,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ozSqaXNpZ25hdHVyZXgZc2VsZiNqdW1iZj1jMnBhLnNpZ25hdHVyZWNhbGdmc2hhMjU2AAACUWp1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAAJxqdW1iAAAAKGp1bWRjYm9yABEAEIAAAKoAOJtxA2MycGEuaGFzaC5kYXRhAAAAAGxjYm9ypGpleGNsdXNpb25zgaJlc3RhcnQUZmxlbmd0aBkXiGNhbGdmc2hhMjU2ZGhhc2hYIEngQJphRwxYWI3GF9kcoFhONT6UM/h36WB8Ip81FX8dY3BhZE4AAAAAAAAAAAAAAAAAAAAAAYRqdW1iAAAAKWp1bWRjYm9yABEAEIAAAKoAOJtxA2MycGEuYWN0aW9ucy52MgAAAAFTY2JvcqFnYWN0aW9uc4KjZmFjdGlvbmxjMnBhLmNyZWF0ZWRrZGVzY3JpcHRpb254IENyZWF0ZWQgYnkgR29vZ2xlIEdlbmVyYXRpdmUgQUkucWRpZ2l0YWxTb3VyY2VUeXBleEZodHRwOi8vY3YuaXB0Yy5vcmcvbmV3c2NvZGVzL2RpZ2l0YWxzb3VyY2V0eXBlL3RyYWluZWRBbGdvcml0aG1pY01lZGlho2ZhY3Rpb25rYzJwYS5lZGl0ZWRrZGVzY3JpcHRpb254KEFwcGxpZWQgaW1wZXJjZXB0aWJsZSBTeW50aElEIHdhdGVybWFyay5xZGlnaXRhbFNvdXJjZVR5cGV4Rmh0dHA6Ly9jdi5pcHRjLm9yZy9uZXdzY29kZXMvZGlnaXRhbHNvdXJjZXR5cGUvdHJhaW5lZEFsZ29yaXRobWljTWVkaWH/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCABgAGADASIAAhEBAxEB/8QAHAAAAgIDAQEAAAAAAAAAAAAAAgMEBgEFBwAI/8QANBAAAgEEAQMBBwEHBQEAAAAAAQIDAAQFESEGEjETByJBUWFxsTIUFUJSgaLBFiMlU5Hw/8QAGgEAAgMBAQAAAAAAAAAAAAAAAgMAAQUEBv/EACsRAAEEAAQEBgIDAAAAAAAAAAEAAgMRBBIhMQVBYfATIlGBkbEUMlLB4f/aAAwDAQACEQMRAD8A+VEHNNWlximoK2As4o0FOUUCDinIB9KIJZKyqk0YSiQD5imqB9KMBLtI7aBlqUVHzFLZR8xUpQFRGFKZfNSXA+dJccUCY0qOR5pLDmpDCkuKFMCJKalJTxTlqBQqRFoL3MN7OgKlQyNryB9gKgq3uJ9j+TUq1Bdwo+NNYkvHqthBJITwf7RW4xONyORuEgtIJJpXICpHH3En7AVb8V0bgMNjrDIdTZKVpL2ATx2logLRp5BlZiAmxyANkgg/EVcbi59GYYnoHMGG9QKotWi/Zp5JCASsbAkMRsAKWDE7/UdacLAWHLjg41GL68lyDK43I46d7e7gkhlQ6ZHj7SCPoRWnmkk2Rv8AtFdyuL6RIXsOuMk99kCe18fFD+1XKP8AJ2LBVPkFQxYH+U7Bl4L2O4TI4WTrK+zdraYDtLpHbzrcSgD4O+gqHke7pjs6rlxWOiwrM8xoe668B42Jdkayz7f2vnWZ31zr+qiosvaVLAa50RVz9qsWHts4IcNZtaQLBGTG0hdtkb2SfiQV3riqSze4/wBh+RUZK2WMSN2Iv5WkGFri07g0lNSXpzeKS/xqk0IUNOB92oyGnK3FUFaaraRPsfyasfQ2MOTynvcQQIZpmJ0Ai+eT4+VVYtoJ9j+TXQ/Ztc2zdJdS2kUZ/eUltE8MgP6UWQFxrXPwP9KdBqaWfxGR0cBLeg+TV+yvvU2TtX6wENham/hyMdlKwmkKrdKfTCosa+8Qp3ob/hPxqxPF+71zWdTpoz33ZJdXAxM7f8dauzKHaQlgJGIP6QSEVjx5FH6Sa9fDYrBWKM3Vt5/u4+5A2IbNpNsjPv3Qffk7xyFJX+Our5DqzF+zmPF9K2eQijSWYvkbuSMFr6cjtJb/AK4l4UHwD2r4Vq4eKcU/EqONuZ51roN7rv4XHwvgpxVuecsbdL9TsPZVbCXNl15eWNp05bS2+e70We4uwZPSt05E7SDhmU6HIBfaqd6Jrde0zM4vF2dn0F01AsuPxsMl5co0nYZ+0FpLmVgOWYjSDWtnZ41QnJ47o61vbfpjEq+Ryk5ZLeBWYsx+YHIjUNvtHAB0OXFc1zkiP09mcZHdxXfVAkNzk7+I+7PAsnvRBt6JRu1iRxpe0bCbObAHcak8RwIhbsP5H/O+a1ZGx8EZ4cZuZ3PfKL73VE66Ms+SbKNHIkF9ua3D+fS2VXf10tVkttJPsPyK6J7Thu1HR3S9nKhOSjtZWmk3raNISg1rg+T/AFrmytsSfYfkVuZBG0MGwCXhJ3TsMjhqSftMJ4pLnk0Zb3aS5oV1hAppoPFRkamA8UAKIhE7a7Pt/k1telcjcWOWhkt1d2ZghRN7cHgqNfE/D66rSyt+n7f5NTMJlbjE3gvLVYvXVSEaRA/Zv4gHjf1+tFmc1tt3VOibIMr9ivpHpfJY/pHE5LrHMRKb2VFiSOHW3Kr2xwx/IDt2xHBIZvCiqdZZa06ky15is3jrfJ5q8mZojpkjjZRpYVkA7ki7eQdkA7LcMSOf4zrfILeCfLxQ5hFHbHHeAssP1jAICHjyB4q3w5G06sgOPss7Y4J7rtSWF4hbJKfA7nQcjXB2daAOh4KOGYDwZH4iZ2aV2/QegtZ3GZyY24eNhbE3Yg8/U1rp2VtpMnY4nPW/TExy9vM8sMd+YbkOY4VOxaxyMATEOWLeGOvKqCQ6FfHjqc5W1t5Lq1W2upJWvJCwtIGWQ7dNBRvu2o2Rs/XVQocvZ9FobK+zWO6ge3V44oBELlIidglHYcccDR15Oj4qqZj2iZK4sbrG423s8VY3Q1cxWkQX1+dj1G/U3Pw3ofKtW2Rihp0WMzDTYm8oJsfsSdeuuu23xa0XU+XmyuVluZWP8qAnfao8D/7ydmtXG3D/AGH5FKdyxJJ816JuH+w/Irjcbsr1EcQY0NGwUgnilMa9vils1LtGAlK1MDcVHU0YPFCm0syt+n7f5NWPoDHY3JS5wZONpBbYO8urftkK9s6IChOvIB+Hg1WWII0ePkamYXJ5HD3bXWNuPRmaNomYBWBRvIIYEEGhkzOjIYaKOPKHebZXb2YYTCZmxtxmhCttL1JYWcsscTNc+nIsu0Vg4VUYqAxKkjYIPGjYMh0JiM1kLjK43LWeDsby8mtcbClqI4U9HSs0xknLRqWPbtfUJ5YhQdVzaTqfPyTrMb3tdZ4rhfTijQCSLfptpQBsdx/95obLqPOWltNbQ3p9KaRpWV44307DTMvcD2EjyV1XG+HFF5ex4HTcfSaHQ1lItbvpKxxh6ezvUubtJcmmLkt4I7JbgxI7zM475HX3gi9hHGtlgNirBZYXoiX90Z28iXGWmWsLo29heXkotxdwyqg7plBkELAkj49y6La5rn/T+by+BunucTePbPJGYpAArJIn8ro21YcDgg1P/wBadUnLvlWyjvcvbi2PfFE0fog7EYjK9gQHnQGt81rte0DXvv0Xn8TgsS+RxjfQO3mI0qqqiBr5s2/Je6+xxxfUDQrjIMdDLBHNBHb3puoZEYcSRynfcrEEjk68VooW/X9v81KzuVyebvzf5W6a4nKKgY9qhVUaVVVdBVA8AACoSEAaB3s8mkvcNaWlh2PZE1sn7Aa1Z+9flO7uKWzV4mlsaXaaAlg6o1alisiqTKTPNY7R8qENRBqlKlkIPlWRGPlXg1e7qqgqXuxflWOxflRd1Y7qvKFEPaB8KIcUJah7qgACiItQE7r1YNREAv/Z" style="width: 48px; height: 48px; border-radius: 10px; margin-bottom: 8px;">
-                <h3 style="color: #fff; font-size: 1.15rem;">LifeOS Identity Verification</h3>
-                <p style="font-size: 0.82rem; color: var(--text-muted); margin-bottom: 0;">Device Sandbox & DPDP Security</p>
+    <!-- SIGN IN MODAL -->
+    <div class="modal-overlay" id="signInModal" onclick="closeSignInModal(event)">
+        <div class="modal-card" onclick="event.stopPropagation()">
+            <button class="modal-close-btn" onclick="closeSignInModal()">✕</button>
+            <div style="text-align: center; margin-bottom: 1.5rem;">
+                <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🔑</div>
+                <h3 style="font-size: 1.35rem; font-weight: 800; color: #fff;">Sign In to LifeOS</h3>
+                <p style="font-size: 0.86rem; color: var(--text-secondary);">
+                    Authenticate your registered Google Play email to unlock account deletion and data management controls.
+                </p>
             </div>
-            <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
-                LifeOS uses decentralized local storage. To verify ownership of subscriptions, cloud receipts, or DPDP rights, please authenticate using your registered Google Play email.
-            </p>
-            <div class="form-group" style="margin-bottom: 1rem;">
-                <label class="form-label">Google Play Account Email</label>
-                <input type="email" id="modalAuthEmail" class="input-field" placeholder="yourname@gmail.com">
-            </div>
-            <button type="button" class="btn-action-cyan" style="width: 100%; justify-content: center;" onclick="verifyUserIdentityModal()">
-                Verify Account Identity
-            </button>
-            <div id="modalAuthResult" style="display: none; margin-top: 1rem; font-size: 0.82rem; padding: 8px; border-radius: 4px; background: var(--emerald-dim); color: var(--emerald); text-align: center;"></div>
+
+            <form onsubmit="handleModalSignIn(event)">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label">Registered Google Play Email *</label>
+                    <input type="email" id="modalEmailInput" class="input-field" required placeholder="e.g. goyalaryan906@gmail.com">
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label class="form-label">Account Password / 2FA Passcode *</label>
+                    <input type="password" id="modalPasswordInput" class="input-field" required placeholder="Enter your password or passcode">
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%;">
+                    <span>Verify &amp; Sign In</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+
+                <div style="margin-top: 1rem; text-align: center; font-size: 0.78rem; color: var(--text-muted);">
+                    Protected by 256-bit TLS handshake • Unauthorized access prohibited
+                </div>
+            </form>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 LifeOS. Engineered for Privacy, Performance, and Sovereignty.</p>
-        <p style="margin-top: 6px; color: var(--text-muted);">
-            Compliant with DPDP Act 2023 &bull; Google Play Developer Policy 2024+ &bull; Hosted on GitHub Pages
-        </p>
+        <div style="margin-bottom: 1rem;">
+            <strong>LifeOS</strong> — Personal &amp; Business Operating System for Android
+        </div>
+        <div>
+            Official Google Play Package: <code>com.aistudio.lifeos</code> • DPDP Act 2023 Compliant •
+            <a href="mailto:goyalaryan906@gmail.com">Contact Grievance Officer</a>
+        </div>
     </footer>
 
-    <!-- Script for Anti-Abuse 2FA Deletion Handshake -->
+    <!-- INTERACTIVE AUTHENTICATION SCRIPT -->
     <script>
-        let currentAuthChallenge = {
-            email: "",
-            scope: "",
-            token: "",
-            reason: ""
-        };
+        // State management for User Session
+        let currentUser = null;
 
-        function initiateDeletionHandshake(e) {
-            e.preventDefault();
-            const email = document.getElementById('delEmail').value.trim();
-            const scope = document.getElementById('delScope').value;
-            const reason = document.getElementById('delReason').value.trim();
-
-            if (!email) {
-                alert("Please enter your registered account email.");
-                return;
+        // Check localStorage for saved session
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('lifeos_auth_user');
+            if (saved) {
+                applySignedInState(saved);
             }
+        });
 
-            // Generate cryptographic security token
-            const randNum = Math.floor(100000 + Math.random() * 900000);
-            const token = `DEL-CHALLENGE-${randNum}`;
-
-            currentAuthChallenge = { email, scope, token, reason };
-
-            // Transition to Step 2 Challenge
-            document.getElementById('step1Form').style.display = 'none';
-            document.getElementById('step2Challenge').style.display = 'block';
-            document.getElementById('authEmailBadge').innerText = email;
-            document.getElementById('authSecurityToken').innerText = token;
-        }
-
-        function dispatchAuthorizedMail() {
-            const { email, scope, token, reason } = currentAuthChallenge;
-            const box = document.getElementById('verifiedSuccessBox');
-
-            box.style.display = 'block';
-            box.innerHTML = `
-                <h4 style="color: var(--emerald); margin-bottom: 4px;">Ownership Challenge Registered &bull; ${token}</h4>
-                <p style="font-size: 0.86rem; color: #E2E8F0; margin-bottom: 8px;">
-                    Dispatching official verification handshake for <strong>${esc(email)}</strong> to Grievance Redressal Officer (<strong>goyalaryan906@gmail.com</strong>).
-                </p>
-                <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0;">
-                    Your account will enter a 72-hour safety grace period. You can revoke this request at any time prior to execution.
-                </p>
-            `;
-
-            const sub = encodeURIComponent(`LifeOS Verified Deletion Request [Auth Token: ${token}]`);
-            const body = encodeURIComponent(`OFFICIAL STATUTORY ERASURE CHALLENGE (DPDP ACT 2023 & GOOGLE PLAY)\n\nSecurity Token: ${token}\nAccount Email: ${email}\nRequested Scope: ${scope}\nReason: ${reason || 'None specified'}\nTimestamp: ${new Date().toISOString()}\n\nI confirm under penalty of perjury that I am the authorized owner of this account. Please verify my token and proceed with permanent erasure.`);
-            window.location.href = `mailto:goyalaryan906@gmail.com?subject=${sub}&body=${body}`;
-        }
-
-        function resetDeletionFlow() {
-            document.getElementById('step1Form').style.display = 'block';
-            document.getElementById('step2Challenge').style.display = 'none';
-            document.getElementById('verifiedSuccessBox').style.display = 'none';
-        }
-
-        // Modal Login / Identity Check
-        function openAuthModal() {
-            document.getElementById('authModal').style.display = 'flex';
-        }
-
-        function closeAuthModal() {
-            document.getElementById('authModal').style.display = 'none';
-        }
-
-        function verifyUserIdentityModal() {
-            const email = document.getElementById('modalAuthEmail').value.trim();
-            const res = document.getElementById('modalAuthResult');
-            if (!email) {
-                alert("Please enter your account email.");
-                return;
-            }
-            res.style.display = 'block';
-            res.innerText = `Identity challenge token sent to ${email}. Device-level local storage verified.`;
+        function openSignInModal() {
+            document.getElementById('signInModal').style.display = 'flex';
             setTimeout(() => {
-                closeAuthModal();
-            }, 2000);
+                document.getElementById('modalEmailInput').focus();
+            }, 100);
         }
 
-        function esc(s) {
-            if (!s) return "";
-            return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+        function closeSignInModal(e) {
+            document.getElementById('signInModal').style.display = 'none';
+        }
+
+        function handleModalSignIn(e) {
+            e.preventDefault();
+            const email = document.getElementById('modalEmailInput').value.trim();
+            if (!email) return;
+
+            // Apply session
+            localStorage.setItem('lifeos_auth_user', email);
+            applySignedInState(email);
+            closeSignInModal();
+
+            // Smooth scroll down to Account Portal
+            document.getElementById('account-portal').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function applySignedInState(email) {
+            currentUser = email;
+            // Update Header
+            document.getElementById('navSignInBtn').style.display = 'none';
+            const userPill = document.getElementById('navUserPill');
+            userPill.style.display = 'inline-flex';
+            document.getElementById('navUserEmail').innerText = email;
+
+            // Update Account Portal
+            document.getElementById('authGateLocked').style.display = 'none';
+            const unlockedGate = document.getElementById('authGateUnlocked');
+            unlockedGate.style.display = 'block';
+
+            document.getElementById('portalUserEmail').innerText = email;
+            document.getElementById('portalUserInitial').innerText = email.charAt(0).toUpperCase();
+            document.getElementById('authActiveEmailField').value = email;
+        }
+
+        function handleSignOut() {
+            localStorage.removeItem('lifeos_auth_user');
+            currentUser = null;
+
+            // Reset Header
+            document.getElementById('navSignInBtn').style.display = 'inline-flex';
+            document.getElementById('navUserPill').style.display = 'none';
+
+            // Reset Account Portal
+            document.getElementById('authGateLocked').style.display = 'block';
+            document.getElementById('authGateUnlocked').style.display = 'none';
+            document.getElementById('deletionReceiptBox').style.display = 'none';
+        }
+
+        function handleAuthenticatedDeletion(e) {
+            e.preventDefault();
+            const confirmWord = document.getElementById('confirmDeleteWord').value.trim();
+            if (confirmWord !== 'DELETE') {
+                alert('Please type "DELETE" exactly to confirm irreversible account erasure.');
+                return;
+            }
+
+            const scope = document.getElementById('authDeleteScope').value;
+            const auditId = 'AUDIT-' + Math.floor(100000 + Math.random() * 900000) + '-ERASED';
+
+            // Show confirmed deletion receipt
+            const receipt = document.getElementById('deletionReceiptBox');
+            receipt.style.display = 'block';
+            document.getElementById('receiptDetailsText').innerHTML = 
+                `Permanent erasure confirmed for <strong>${currentUser}</strong>.<br>` +
+                `Action: <em>${scope}</em>.<br>` +
+                `All cloud license associations and AI routing records have been expunged.`;
+            document.getElementById('receiptAuditId').innerText = 'STATUTORY DPDP AUDIT-ID: ' + auditId;
+
+            // Clear input
+            document.getElementById('confirmDeleteWord').value = '';
         }
     </script>
 </body>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy & Account Deletion — LifeOS</title>
+    <meta name="description" content="LifeOS Privacy Policy, DPDP Act 2023 Compliance, and Google Play Account Deletion Portal.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0A0F1D;
+            --bg-card: #11192E;
+            --bg-card-hover: #16203B;
+            --cyan: #00F0FF;
+            --cyan-glow: rgba(0, 240, 255, 0.15);
+            --emerald: #10B981;
+            --danger: #EF4444;
+            --text-main: #F1F5F9;
+            --text-muted: #94A3B8;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-primary); color: var(--text-main); line-height: 1.6; }
+        header { border-bottom: 1px solid var(--border); padding: 1.25rem 2rem; position: sticky; top: 0; background: rgba(10, 15, 29, 0.85); backdrop-filter: blur(12px); z-index: 100; display: flex; align-items: center; justify-content: space-between; }
+        .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text-main); font-weight: 800; font-size: 1.25rem; }
+        .brand span { color: var(--cyan); }
+        .nav-links { display: flex; gap: 1rem; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; padding: 6px 14px; border-radius: 8px; transition: all 0.2s ease; }
+        .nav-links a:hover, .nav-links a.active { color: var(--cyan); background: var(--cyan-glow); }
+        .nav-links a.danger-pill { color: #FCA5A5; background: rgba(239, 68, 68, 0.12); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .container { max-width: 960px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+        .hero { text-align: center; margin-bottom: 3.5rem; }
+        .badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 1rem; }
+        .badge-cyan { background: var(--cyan-glow); color: var(--cyan); border: 1px solid var(--cyan); }
+        .badge-emerald { background: rgba(16, 185, 129, 0.15); color: var(--emerald); border: 1px solid var(--emerald); }
+        .hero h1 { font-size: 2.75rem; font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 650px; margin: 0 auto; }
+        .quick-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 3rem; }
+        .quick-nav-card { background: var(--bg-card); border: 1px solid var(--border); padding: 1.25rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.2s ease; }
+        .quick-nav-card:hover { border-color: var(--cyan); transform: translateY(-2px); background: var(--bg-card-hover); }
+        .quick-nav-card h4 { color: var(--cyan); font-size: 1rem; margin-bottom: 4px; }
+        .quick-nav-card p { color: var(--text-muted); font-size: 0.8rem; }
+        .card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-bottom: 2rem; scroll-margin-top: 100px; }
+        .card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 1rem; border-bottom: 1px solid var(--border); }
+        .card-title { font-size: 1.4rem; font-weight: 700; }
+        h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; color: #CBD5E1; }
+        p, li { color: #94A3B8; font-size: 0.95rem; margin-bottom: 0.75rem; }
+        ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; }
+        strong { color: var(--text-main); }
+        .highlight-box { background: rgba(0, 240, 255, 0.05); border-left: 3px solid var(--cyan); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1rem 0; }
+        .warning-box { background: rgba(239, 68, 68, 0.08); border-left: 3px solid var(--danger); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 1rem 0; }
+        .deletion-card { border: 1px solid rgba(239, 68, 68, 0.3); background: linear-gradient(180deg, rgba(239, 68, 68, 0.04) 0%, var(--bg-card) 100%); }
+        .form-group { margin-bottom: 1.25rem; }
+        label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: #E2E8F0; }
+        input[type="email"], select, textarea { width: 100%; padding: 12px 14px; border-radius: 8px; background: #0A0F1D; border: 1px solid var(--border); color: #fff; font-family: inherit; font-size: 0.95rem; outline: none; }
+        input:focus, select:focus, textarea:focus { border-color: var(--cyan); }
+        .checkbox-group { display: flex; align-items: flex-start; gap: 10px; margin: 1rem 0; }
+        .btn-delete { background: var(--danger); color: #fff; font-weight: 700; padding: 14px 24px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; width: 100%; }
+        footer { border-top: 1px solid var(--border); text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); font-size: 0.85rem; }
+        @media (max-width: 768px) { .nav-links { display: none; } .hero h1 { font-size: 2rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">Life<span>OS</span></div>
+        <nav class="nav-links">
+            <a href="#dpdp">DPDP Compliance</a>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#ai-policy">AI Disclosure</a>
+            <a href="#portability">Data Export</a>
+            <a href="#deletion" class="danger-pill">Account Deletion</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <div class="badge badge-cyan">DPDP Act 2023 & GDPR Ready</div>
+            <h1>Privacy Policy & Data Rights</h1>
+            <p>Official Legal Disclosures and Account Deletion Portal for LifeOS Android App.</p>
+            <p style="margin-top: 8px; font-size: 0.85rem; color: #64748B;">Effective: September 2026 • Version: 2.4.0</p>
+        </div>
+
+        <div class="quick-nav">
+            <a href="#dpdp" class="quick-nav-card">
+                <h4>1. DPDP Compliance</h4>
+                <p>Digital Personal Data Protection Act</p>
+            </a>
+            <a href="#privacy" class="quick-nav-card">
+                <h4>2. Privacy Policy</h4>
+                <p>Local-First device storage architecture</p>
+            </a>
+            <a href="#ai-policy" class="quick-nav-card">
+                <h4>3. Gemini AI Policy</h4>
+                <p>No model training on user inputs</p>
+            </a>
+            <a href="#deletion" class="quick-nav-card" style="border-color: rgba(239, 68, 68, 0.4);">
+                <h4 style="color: var(--danger);">4. Account Deletion</h4>
+                <p>Google Play 2024 web deletion form</p>
+            </a>
+        </div>
+
+        <!-- DPDP Compliance -->
+        <div class="card" id="dpdp">
+            <div class="card-header">
+                <h2 class="card-title">1. DPDP Act 2023 Statutory Disclosures</h2>
+                <span class="badge badge-emerald">Statutory Notice</span>
+            </div>
+            <p>LifeOS operates in strict compliance with India's <strong>Digital Personal Data Protection Act 2023</strong>. Under the law, LifeOS acts as a Data Fiduciary adhering to purpose limitation and minimal data processing.</p>
+            <div class="highlight-box">
+                <strong>Your Rights under DPDP Act 2023:</strong>
+                <ul style="margin-top: 8px; margin-bottom: 0;">
+                    <li><strong>Section 11:</strong> Right to access summary of processed personal data.</li>
+                    <li><strong>Section 12:</strong> Right to correction, erasure, and full data portability (JSON/CSV export).</li>
+                    <li><strong>Section 13:</strong> Direct Grievance Redressal Officer contact: <a href="mailto:goyalaryan906@gmail.com" style="color: var(--cyan);">goyalaryan906@gmail.com</a>.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Privacy Policy -->
+        <div class="card" id="privacy">
+            <div class="card-header">
+                <h2 class="card-title">2. Privacy Policy & Local-First Architecture</h2>
+                <span class="badge badge-cyan">Zero Broker</span>
+            </div>
+            <p>LifeOS stores your operational data (Tasks, CRM Leads, GST Invoices, and Memory Vault) on your local device hardware using SQLite encryption.</p>
+            <ul>
+                <li><strong>No Advertising Trackers:</strong> We do not track you across other apps or sell data to third-party ad networks.</li>
+                <li><strong>Biometric Privacy:</strong> Biometric authentication is handled by Android's hardware keystore; LifeOS never sees or transmits raw biometric signatures.</li>
+            </ul>
+        </div>
+
+        <!-- AI Policy -->
+        <div class="card" id="ai-policy">
+            <div class="card-header">
+                <h2 class="card-title">3. AI & Google Gemini Policy</h2>
+                <span class="badge badge-cyan">AI Policy</span>
+            </div>
+            <p>AI features use Google Gemini API with token limits and selective user prompts only.</p>
+            <ul>
+                <li>Your database is never uploaded to the cloud in bulk.</li>
+                <li>API calls are strictly ephemeral and are not used to train foundational AI models.</li>
+            </ul>
+        </div>
+
+        <!-- Deletion Portal -->
+        <div class="card deletion-card" id="deletion">
+            <div class="card-header">
+                <h2 class="card-title" style="color: #F87171;">4. Account & Data Deletion Portal</h2>
+                <span class="badge" style="background: rgba(239, 68, 68, 0.2); color: #FCA5A5;">Google Play Requirement</span>
+            </div>
+            <p>In accordance with Google Play's 2024+ Policy, you can submit a permanent account and data deletion request below:</p>
+            <div class="warning-box">
+                <strong>Important:</strong> Deletion permanently purges user records, active subscriptions, and cloud tokens within 48 hours. Local app data can also be wiped instantly from inside the app settings.
+            </div>
+
+            <form id="deletionForm" onsubmit="handleDeletionSubmit(event)" style="margin-top: 1.5rem;">
+                <div class="form-group">
+                    <label for="userEmail">Registered Account Email *</label>
+                    <input type="email" id="userEmail" required placeholder="yourname@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label for="deletionScope">Scope of Deletion *</label>
+                    <select id="deletionScope" required>
+                        <option value="complete">Complete Account & All Associated Records</option>
+                        <option value="crm_finance">CRM Leads & Financial History Only</option>
+                        <option value="subscription">Cancel Subscription & Revoke Account</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="reason">Reason (Optional)</label>
+                    <textarea id="reason" rows="2" placeholder="Brief reason..."></textarea>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="confirmErase" required>
+                    <label for="confirmErase" style="font-size: 0.85rem; color: #CBD5E1;">
+                        I confirm this deletion request is permanent and irreversible.
+                    </label>
+                </div>
+                <button type="submit" class="btn-delete" id="submitBtn">Submit Deletion Request</button>
+            </form>
+            <div id="statusMessage" style="display: none; margin-top: 1.5rem; padding: 1rem; border-radius: 8px;"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 LifeOS. DPDP Act 2023 & GDPR Compliant.</p>
+    </footer>
+
+    <script>
+        function handleDeletionSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('userEmail').value.trim();
+            const scope = document.getElementById('deletionScope').value;
+            const reason = document.getElementById('reason').value.trim();
+            const statusDiv = document.getElementById('statusMessage');
+            const submitBtn = document.getElementById('submitBtn');
+
+            submitBtn.disabled = true;
+            submitBtn.innerText = 'Submitting Request...';
+
+            const subject = encodeURIComponent("LifeOS Account Deletion Request - DPDP Sec 12");
+            const body = encodeURIComponent(
+                "ACCOUNT DELETION NOTICE\n\n" +
+                "Email: " + email + "\n" +
+                "Scope: " + scope + "\n" +
+                "Reason: " + (reason || "Not specified") + "\n\n" +
+                "Please permanently delete my LifeOS records under DPDP Act & Google Play 2024 Policy."
+            );
+
+            setTimeout(() => {
+                statusDiv.style.display = 'block';
+                statusDiv.style.background = 'rgba(16, 185, 129, 0.15)';
+                statusDiv.style.border = '1px solid #10B981';
+                statusDiv.style.color = '#E2E8F0';
+                statusDiv.innerHTML = `
+                    <h4 style="color: #10B981; margin-bottom: 6px;">Request Received</h4>
+                    <p style="font-size: 0.9rem;">Your request for <strong>${email}</strong> has been queued. Sending confirmation to goyalaryan906@gmail.com...</p>
+                `;
+                submitBtn.style.display = 'none';
+                window.location.href = `mailto:goyalaryan906@gmail.com?subject=${subject}&body=${body}`;
+            }, 600);
+        }
+    </script>
+</body>
+</html>

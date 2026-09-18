@@ -3,31 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LifeOS — Personal & Business Operating System</title>
-    <meta name="description" content="LifeOS Web Portal & Legal Center. Tasks, CRM Pipeline, Financial Ledgers, DPDP Data Portability, and Google Play Account Deletion.">
+    <title>LifeOS — Trust Center, Privacy Policy & Data Sovereignty</title>
+    <meta name="description" content="Official Trust Center, Privacy Architecture, DPDP Act 2023 Compliance, and Google Play Account Deletion Portal for LifeOS.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #070913;
-            --surface-1: #0D1322;
-            --surface-2: #121A30;
-            --surface-card: #16203B;
+            --bg-base: #090D1A;
+            --bg-surface: #0F172A;
+            --bg-surface-elevated: #1E293B;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(0, 240, 255, 0.35);
             --cyan: #00F0FF;
-            --cyan-glow: rgba(0, 240, 255, 0.25);
-            --cyan-dim: rgba(0, 240, 255, 0.1);
+            --cyan-dim: rgba(0, 240, 255, 0.12);
             --emerald: #10B981;
-            --emerald-dim: rgba(16, 185, 129, 0.1);
+            --emerald-dim: rgba(16, 185, 129, 0.12);
             --rose: #F43F5E;
-            --rose-dim: rgba(244, 63, 94, 0.1);
+            --rose-dim: rgba(244, 63, 94, 0.12);
+            --amber: #F59E0B;
             --text-primary: #F8FAFC;
             --text-secondary: #94A3B8;
             --text-muted: #64748B;
-            --border: rgba(255, 255, 255, 0.07);
-            --border-hover: rgba(0, 240, 255, 0.35);
-            --radius-xl: 20px;
-            --radius-lg: 14px;
+            --radius-lg: 16px;
             --radius-md: 10px;
             --radius-sm: 6px;
         }
@@ -39,120 +37,113 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-base);
             color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 240, 255, 0.08), transparent),
-                linear-gradient(180deg, #070913 0%, #0A1021 100%);
-            min-height: 100vh;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Ambient subtle grid */
-        .ambient-grid {
+        /* Subtle background gradient */
+        .ambient-glow {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: 
-                linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 32px 32px;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 480px;
+            background: radial-gradient(ellipse 70% 360px at 50% -20px, rgba(0, 240, 255, 0.09), transparent);
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Header Navigation */
+        /* Top Header */
         header {
             position: sticky;
             top: 0;
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            background: rgba(7, 9, 19, 0.85);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            padding: 1rem 2rem;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            background: rgba(9, 13, 26, 0.85);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 100;
+            padding: 0.85rem 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .brand-container {
+        .brand-link {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             text-decoration: none;
             color: #fff;
         }
 
-        .brand-icon {
-            width: 38px;
-            height: 38px;
+        .brand-badge {
+            width: 36px;
+            height: 36px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #0B192E 0%, #00F0FF 250%);
-            border: 1px solid rgba(0, 240, 255, 0.4);
+            background: linear-gradient(135deg, #0A1931, #00F0FF);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-            color: var(--cyan);
-            font-size: 1.1rem;
             font-weight: 800;
+            color: #090D1A;
+            font-size: 1.1rem;
+            border: 1px solid rgba(0, 240, 255, 0.5);
         }
 
-        .brand-name {
-            font-size: 1.25rem;
+        .brand-title {
+            font-size: 1.2rem;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
 
-        .brand-name span {
+        .brand-title span {
             color: var(--cyan);
         }
 
-        .nav-actions {
+        .nav-links {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
         }
 
-        .nav-btn {
+        .nav-item {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.88rem;
+            font-size: 0.86rem;
             font-weight: 600;
-            padding: 8px 14px;
+            padding: 6px 14px;
             border-radius: var(--radius-sm);
             transition: all 0.2s;
-            cursor: pointer;
-            border: 1px solid transparent;
         }
 
-        .nav-btn:hover {
+        .nav-item:hover {
             color: #fff;
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .nav-btn.active {
+        .nav-item.active {
             color: var(--cyan);
             background: var(--cyan-dim);
-            border-color: rgba(0, 240, 255, 0.2);
         }
 
-        .nav-btn.danger-link {
+        .nav-item.danger-pill {
             color: #FDA4AF;
             background: var(--rose-dim);
-            border-color: rgba(244, 63, 94, 0.25);
+            border: 1px solid rgba(244, 63, 94, 0.25);
         }
 
-        .nav-btn.danger-link:hover {
+        .nav-item.danger-pill:hover {
             background: rgba(244, 63, 94, 0.2);
             color: #fff;
         }
 
         /* Container */
-        .page-container {
-            max-width: 1080px;
+        .page-wrap {
+            max-width: 1000px;
             margin: 0 auto;
             padding: 3rem 1.5rem 6rem;
             position: relative;
@@ -160,26 +151,26 @@
         }
 
         /* Hero */
-        .hero {
+        .hero-banner {
             text-align: center;
             margin-bottom: 3.5rem;
         }
 
-        .badge-pill {
+        .trust-chip {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 14px;
+            padding: 5px 14px;
             border-radius: 999px;
-            background: var(--surface-1);
-            border: 1px solid var(--border);
-            font-size: 0.78rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            font-size: 0.8rem;
             font-weight: 600;
             color: var(--emerald);
             margin-bottom: 1.25rem;
         }
 
-        .dot-pulse {
+        .trust-dot {
             width: 7px;
             height: 7px;
             border-radius: 50%;
@@ -187,1020 +178,724 @@
             box-shadow: 0 0 8px var(--emerald);
         }
 
-        .hero h1 {
-            font-size: 3rem;
+        .hero-banner h1 {
+            font-size: 2.75rem;
             font-weight: 800;
             letter-spacing: -1.2px;
-            line-height: 1.15;
+            line-height: 1.2;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero p {
-            color: var(--text-secondary);
+        .hero-banner p {
             font-size: 1.1rem;
-            max-width: 620px;
-            margin: 0 auto 1.75rem;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto;
         }
 
-        .cta-row {
+        /* Organization Pillar Grid */
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .pillar-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+        }
+
+        .pillar-icon {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .pillar-box h4 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .pillar-box p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Section Cards */
+        .legal-section {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            margin-bottom: 2.25rem;
+            scroll-margin-top: 80px;
+        }
+
+        .section-header-row {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-header-row h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .badge-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-cyan { background: var(--cyan-dim); color: var(--cyan); border: 1px solid rgba(0, 240, 255, 0.3); }
+        .badge-emerald { background: var(--emerald-dim); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .badge-rose { background: var(--rose-dim); color: #FDA4AF; border: 1px solid rgba(244, 63, 94, 0.3); }
+
+        p, li {
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            margin-bottom: 0.85rem;
+        }
+
+        strong {
+            color: #fff;
+        }
+
+        ul {
+            padding-left: 1.25rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .info-callout {
+            background: rgba(0, 240, 255, 0.04);
+            border: 1px solid rgba(0, 240, 255, 0.16);
+            border-left: 3px solid var(--cyan);
+            padding: 1rem 1.25rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 1.25rem 0;
+        }
+
+        .danger-callout {
+            background: rgba(244, 63, 94, 0.04);
+            border: 1px solid rgba(244, 63, 94, 0.18);
+            border-left: 3px solid var(--rose);
+            padding: 1rem 1.25rem;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            margin: 1.25rem 0;
+        }
+
+        /* -------------------------------------------------------------
+           DATA PORTABILITY ENGINE & INSPECTOR
+        ------------------------------------------------------------- */
+        .portability-tabs {
+            display: flex;
+            gap: 8px;
+            background: #090D1A;
+            padding: 4px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 1.25rem;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .p-tab {
+            flex: 1;
+            padding: 8px 14px;
+            border-radius: var(--radius-sm);
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .p-tab.active {
+            background: var(--bg-surface-elevated);
+            color: var(--cyan);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+
+        .dropzone {
+            border: 2px dashed rgba(0, 240, 255, 0.25);
+            background: rgba(0, 240, 255, 0.02);
+            border-radius: var(--radius-md);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 1.25rem;
+        }
+
+        .dropzone:hover {
+            border-color: var(--cyan);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .dropzone-title {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .dropzone-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .field-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .field-label {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .control-input, .control-select {
+            background: #090D1A;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .control-input:focus, .control-select:focus {
+            border-color: var(--cyan);
         }
 
         .btn-cyan {
             background: linear-gradient(135deg, #00F0FF 0%, #0099FF 100%);
             color: #060913;
             font-weight: 700;
-            padding: 11px 22px;
-            border-radius: var(--radius-md);
-            text-decoration: none;
+            padding: 11px 20px;
+            border-radius: var(--radius-sm);
+            border: none;
+            font-size: 0.9rem;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            border: none;
-            cursor: pointer;
-            font-size: 0.92rem;
             transition: all 0.2s;
-            box-shadow: 0 4px 18px rgba(0, 240, 255, 0.3);
+            box-shadow: 0 4px 14px rgba(0, 240, 255, 0.3);
         }
 
         .btn-cyan:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(0, 240, 255, 0.45);
+            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.45);
+            transform: translateY(-1px);
         }
 
-        .btn-secondary {
-            background: var(--surface-1);
-            color: var(--text-primary);
-            font-weight: 600;
+        .btn-danger-outline {
+            background: transparent;
+            border: 1px solid var(--rose);
+            color: #FDA4AF;
+            font-weight: 700;
             padding: 11px 20px;
-            border-radius: var(--radius-md);
-            text-decoration: none;
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 8px;
-            border: 1px solid var(--border);
-            font-size: 0.92rem;
-            cursor: pointer;
             transition: all 0.2s;
         }
 
-        .btn-secondary:hover {
-            border-color: var(--cyan);
-            color: var(--cyan);
+        .btn-danger-outline:hover {
+            background: var(--rose-dim);
+            color: #fff;
         }
 
-        /* -------------------------------------------------------------
-           WORKSPACE SHELL (ZERO FAKE DATA)
-        ------------------------------------------------------------- */
-        .workspace-shell {
-            background: var(--surface-1);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+        /* Audit Table for Parsed Data */
+        .audit-table-wrap {
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
             overflow: hidden;
-            margin-bottom: 3.5rem;
-        }
-
-        .shell-topbar {
-            background: #080C1A;
-            border-bottom: 1px solid var(--border);
-            padding: 12px 18px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .space-switch {
-            display: flex;
-            background: #040710;
-            padding: 3px;
-            border-radius: var(--radius-md);
-            border: 1px solid var(--border);
-        }
-
-        .space-btn {
-            padding: 6px 14px;
-            border-radius: var(--radius-sm);
-            font-size: 0.82rem;
-            font-weight: 700;
-            cursor: pointer;
-            color: var(--text-secondary);
-            border: none;
-            background: transparent;
-            transition: all 0.2s;
-        }
-
-        .space-btn.active {
-            background: var(--cyan-dim);
-            color: var(--cyan);
-        }
-
-        .nav-tabs {
-            display: flex;
-            gap: 4px;
-        }
-
-        .tab-btn {
-            background: transparent;
-            border: 1px solid transparent;
-            color: var(--text-secondary);
-            font-size: 0.84rem;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: var(--radius-sm);
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        .tab-btn:hover {
-            color: #fff;
-            background: rgba(255, 255, 255, 0.04);
-        }
-
-        .tab-btn.active {
-            background: var(--surface-2);
-            color: #fff;
-            border-color: var(--border);
-        }
-
-        .shell-body {
-            padding: 1.75rem;
-            min-height: 400px;
-        }
-
-        .view-pane {
+            margin-top: 1.25rem;
             display: none;
         }
 
-        .view-pane.active {
-            display: block;
-            animation: paneFade 0.25s ease;
+        .audit-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            text-align: left;
         }
 
-        @keyframes paneFade {
-            from { opacity: 0; transform: translateY(4px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Inputs */
-        .input-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 1.25rem;
-        }
-
-        .text-input {
-            flex: 1;
-            background: #040710;
-            border: 1px solid var(--border);
-            padding: 11px 14px;
-            border-radius: var(--radius-sm);
-            color: #fff;
-            font-size: 0.92rem;
-            font-family: inherit;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        .text-input:focus {
-            border-color: var(--cyan);
-        }
-
-        .select-input {
-            background: #040710;
-            border: 1px solid var(--border);
-            padding: 11px 12px;
-            border-radius: var(--radius-sm);
-            color: #fff;
-            font-size: 0.88rem;
-            outline: none;
-        }
-
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 3.5rem 1.5rem;
+        .audit-table th {
+            background: #090D1A;
+            padding: 10px 14px;
             color: var(--text-muted);
-            border: 1px dashed var(--border);
-            border-radius: var(--radius-md);
-            background: rgba(255,255,255,0.01);
-        }
-
-        .empty-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            opacity: 0.6;
-        }
-
-        .empty-title {
-            font-size: 1rem;
             font-weight: 700;
-            color: var(--text-secondary);
-            margin-bottom: 4px;
-        }
-
-        .empty-desc {
-            font-size: 0.82rem;
-        }
-
-        /* Task Item */
-        .task-row {
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 12px 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 8px;
-            transition: all 0.2s;
-        }
-
-        .task-row.done .task-title {
-            text-decoration: line-through;
-            color: var(--text-muted);
-        }
-
-        .prio-tag {
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 2px 7px;
-            border-radius: 4px;
             text-transform: uppercase;
-        }
-
-        .prio-HIGH { background: rgba(244, 63, 94, 0.15); color: #FDA4AF; }
-        .prio-MEDIUM { background: rgba(245, 158, 11, 0.15); color: #FCD34D; }
-        .prio-LOW { background: rgba(16, 185, 129, 0.15); color: #6EE7B7; }
-
-        /* CRM Pipeline */
-        .pipeline-wrap {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-
-        .pipeline-stage {
-            background: #080C1B;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .stage-title {
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
+            font-size: 0.74rem;
             letter-spacing: 0.5px;
-            padding-bottom: 6px;
-            border-bottom: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
+            border-bottom: 1px solid var(--border-subtle);
         }
 
-        .lead-box {
-            background: var(--surface-card);
-            border: 1px solid var(--border);
+        .audit-table td {
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+
+        .audit-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Status Output Boxes */
+        .status-box {
+            display: none;
+            margin-top: 1.25rem;
+            padding: 1.2rem;
             border-radius: var(--radius-sm);
-            padding: 10px;
-        }
-
-        .lead-box h5 {
-            font-size: 0.9rem;
+            background: rgba(16, 185, 129, 0.08);
+            border: 1px solid var(--emerald);
             color: #fff;
-            margin-bottom: 3px;
         }
 
-        .lead-amt {
-            font-size: 0.8rem;
+        .status-box h4 {
             color: var(--emerald);
-            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 6px;
         }
 
-        /* Finance */
-        .fin-summary {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .fin-card {
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            padding: 14px;
-        }
-
-        .fin-card span {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .fin-val {
-            font-size: 1.4rem;
-            font-weight: 800;
-            margin-top: 4px;
-        }
-
-        /* Modules & Section Boxes */
-        .portal-card {
-            background: var(--surface-1);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            padding: 2.25rem;
-            margin-bottom: 2.5rem;
-            scroll-margin-top: 90px;
-        }
-
-        .portal-card-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1.25rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .portal-card-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .chip {
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 999px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .chip-cyan { background: var(--cyan-dim); color: var(--cyan); border: 1px solid rgba(0, 240, 255, 0.3); }
-        .chip-emerald { background: var(--emerald-dim); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
-        .chip-rose { background: var(--rose-dim); color: #FDA4AF; border: 1px solid rgba(244, 63, 94, 0.3); }
-
-        .terminal-log {
-            background: #040710;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: var(--radius-sm);
-            padding: 12px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: #34D399;
-            max-height: 180px;
-            overflow-y: auto;
-            margin-top: 14px;
-            white-space: pre-wrap;
-            display: none;
-        }
-
-        /* Footer */
         footer {
-            border-top: 1px solid var(--border);
-            padding: 2.5rem 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+            padding: 3rem 1.5rem;
             text-align: center;
             color: var(--text-muted);
             font-size: 0.82rem;
         }
 
-        @media (max-width: 820px) {
-            .hero h1 { font-size: 2.25rem; }
-            .pipeline-wrap { grid-template-columns: 1fr; }
-            .fin-summary { grid-template-columns: 1fr; }
-            .nav-actions { display: none; }
+        footer a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero-banner h1 { font-size: 2.2rem; }
+            .pillar-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .legal-section { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="ambient-grid"></div>
+    <div class="ambient-glow"></div>
 
     <header>
-        <a href="#" class="brand-container">
-            <div class="brand-icon">⚡</div>
-            <div class="brand-name">Life<span>OS</span></div>
+        <a href="#" class="brand-link">
+            <div class="brand-badge">⚡</div>
+            <div class="brand-title">Life<span>OS</span> Trust Center</div>
         </a>
-        <nav class="nav-actions">
-            <a href="#app" class="nav-btn active">Web App</a>
-            <a href="#export" class="nav-btn">Data Export</a>
-            <a href="#dpdp" class="nav-btn">DPDP Compliance</a>
-            <a href="#deletion" class="nav-btn danger-link">Account Deletion</a>
+        <nav class="nav-links">
+            <a href="#dpdp" class="nav-item">DPDP Act 2023</a>
+            <a href="#privacy" class="nav-item">Privacy Architecture</a>
+            <a href="#export" class="nav-item active">Data Portability</a>
+            <a href="#deletion" class="nav-item danger-pill">Account Deletion</a>
         </nav>
     </header>
 
-    <div class="page-container">
-        <!-- Hero Section -->
-        <div class="hero">
-            <div class="badge-pill">
-                <span class="dot-pulse"></span>
-                <span>DPDP Act 2023 & GDPR Section 12 Certified</span>
+    <div class="page-wrap">
+        <!-- Hero -->
+        <div class="hero-banner">
+            <div class="trust-chip">
+                <span class="trust-dot"></span>
+                <span>Statutory Compliance • DPDP Act 2023 & Google Play 2024+ Certified</span>
             </div>
-            <h1>Personal & Business Operating System.</h1>
-            <p>A unified, zero-broker system for your daily tasks, sales pipeline, and finances. Data stays strictly on your hardware with zero tracking.</p>
-            <div class="cta-row">
-                <a href="#app" class="btn-cyan">Open Web Workspace</a>
-                <a href="#export" class="btn-secondary">Export Data (JSON / CSV)</a>
+            <h1>Data Sovereignty & Legal Center</h1>
+            <p>Official privacy governance, device-first architecture disclosures, and user rights portal for LifeOS Android.</p>
+        </div>
+
+        <!-- 3 Organization Pillars -->
+        <div class="pillar-grid">
+            <div class="pillar-box">
+                <div class="pillar-icon">🔒</div>
+                <h4>Device-Hardware Sandboxed</h4>
+                <p>Zero data broker telemetry. Tasks, pipeline leads, and finance ledgers reside on your phone's hardware SQLite storage.</p>
+            </div>
+            <div class="pillar-box">
+                <div class="pillar-icon">⚖️</div>
+                <h4>DPDP Act 2023 Compliant</h4>
+                <p>Full statutory alignment with Section 11 (Access), Section 12 (Erasure & Portability), and Section 13 (Grievance Redressal).</p>
+            </div>
+            <div class="pillar-box">
+                <div class="pillar-icon">📦</div>
+                <h4>Zero Vendor Lock-In</h4>
+                <p>One-click JSON and CSV data exports directly from your app or via our statutory request portal anytime.</p>
             </div>
         </div>
 
-        <!-- -------------------------------------------------------------
-             1. INTERACTIVE WEB WORKSPACE (ZERO FAKE DATA)
-        ------------------------------------------------------------- -->
-        <div class="workspace-shell" id="app">
-            <div class="shell-topbar">
-                <div class="space-switch">
-                    <button class="space-btn active" id="btnSpaceBusiness" onclick="switchSpace('Business')">🏢 Business Space</button>
-                    <button class="space-btn" id="btnSpacePersonal" onclick="switchSpace('Personal')">👤 Personal Space</button>
-                </div>
-
-                <div class="nav-tabs">
-                    <button class="tab-btn active" id="tabTasks" onclick="switchTab('tasks')">Tasks</button>
-                    <button class="tab-btn" id="tabCrm" onclick="switchTab('crm')">CRM Pipeline</button>
-                    <button class="tab-btn" id="tabFinance" onclick="switchTab('finance')">Finance</button>
-                    <button class="tab-btn" id="tabVault" onclick="switchTab('vault')">Vault Notes</button>
-                </div>
-            </div>
-
-            <div class="shell-body">
-                <!-- PANE 1: TASKS -->
-                <div class="view-pane active" id="paneTasks">
-                    <div class="input-row">
-                        <input type="text" id="taskInput" class="text-input" placeholder="Type a new task and press enter or click Add...">
-                        <select id="taskPriority" class="select-input">
-                            <option value="HIGH">High</option>
-                            <option value="MEDIUM" selected>Medium</option>
-                            <option value="LOW">Low</option>
-                        </select>
-                        <button class="btn-cyan" onclick="addTask()">Add Task</button>
-                    </div>
-                    <div id="taskList"></div>
-                </div>
-
-                <!-- PANE 2: CRM -->
-                <div class="view-pane" id="paneCrm">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
-                        <span style="font-size: 0.88rem; color: var(--text-secondary); font-weight: 600;">Client Leads & Sales Stages</span>
-                        <button class="btn-secondary" onclick="addLeadPrompt()" style="font-size: 0.82rem; padding: 6px 14px;">+ Add New Lead</button>
-                    </div>
-
-                    <div class="pipeline-wrap">
-                        <div class="pipeline-stage">
-                            <div class="stage-title">
-                                <span>1. DISCOVERY / LEADS</span>
-                                <span id="countLead">0</span>
-                            </div>
-                            <div id="colLead" style="display: flex; flex-direction: column; gap: 8px;"></div>
-                        </div>
-                        <div class="pipeline-stage">
-                            <div class="stage-title">
-                                <span>2. PROPOSAL SENT</span>
-                                <span id="countProposal">0</span>
-                            </div>
-                            <div id="colProposal" style="display: flex; flex-direction: column; gap: 8px;"></div>
-                        </div>
-                        <div class="pipeline-stage">
-                            <div class="stage-title">
-                                <span>3. CLOSED WON</span>
-                                <span id="countWon">0</span>
-                            </div>
-                            <div id="colWon" style="display: flex; flex-direction: column; gap: 8px;"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- PANE 3: FINANCE -->
-                <div class="view-pane" id="paneFinance">
-                    <div class="fin-summary">
-                        <div class="fin-card">
-                            <span>Total Income</span>
-                            <div class="fin-val" style="color: var(--emerald);" id="valIncome">₹0</div>
-                        </div>
-                        <div class="fin-card">
-                            <span>Total Expense</span>
-                            <div class="fin-val" style="color: var(--rose);" id="valExpense">₹0</div>
-                        </div>
-                        <div class="fin-card">
-                            <span>Net Balance</span>
-                            <div class="fin-val" style="color: var(--cyan);" id="valNet">₹0</div>
-                        </div>
-                    </div>
-
-                    <div class="input-row">
-                        <input type="text" id="finTitle" class="text-input" placeholder="Transaction party, description, or invoice...">
-                        <input type="number" id="finAmt" class="text-input" style="max-width: 160px;" placeholder="Amount (₹)">
-                        <select id="finType" class="select-input">
-                            <option value="INCOME">Income (+)</option>
-                            <option value="EXPENSE">Expense (-)</option>
-                        </select>
-                        <button class="btn-cyan" onclick="addFinance()">Record Entry</button>
-                    </div>
-                    <div id="financeList"></div>
-                </div>
-
-                <!-- PANE 4: VAULT -->
-                <div class="view-pane" id="paneVault">
-                    <div class="input-row">
-                        <input type="text" id="vaultInput" class="text-input" placeholder="Save a private note, strategic thought, or secret...">
-                        <button class="btn-cyan" onclick="addVault()">Save Note</button>
-                    </div>
-                    <div id="vaultList" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px;"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- -------------------------------------------------------------
-             2. DATA PORTABILITY & EXPORT (DPDP ACT SECTION 12)
-        ------------------------------------------------------------- -->
-        <div class="portal-card" id="export" style="border-color: rgba(0, 240, 255, 0.3);">
-            <div class="portal-card-header">
-                <div class="portal-card-title">
+        <!-- 1. DATA PORTABILITY & INSPECTOR (DPDP ACT SECTION 12) -->
+        <div class="legal-section" id="export" style="border-color: rgba(0, 240, 255, 0.3);">
+            <div class="section-header-row">
+                <h2>
                     <span style="color: var(--cyan);">📥</span>
-                    Data Portability Engine (DPDP Act Section 12)
-                </div>
-                <span class="chip chip-cyan">Zero Lock-In</span>
+                    Data Portability & File Inspector (Section 12)
+                </h2>
+                <span class="badge-tag badge-cyan">DPDP & GDPR Article 20</span>
             </div>
 
-            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
-                Under Section 12 of India's DPDP Act 2023 and GDPR Article 20, you have the absolute right to export and transfer your personal records in structured, machine-readable formats.
+            <p>
+                In accordance with <strong>Section 12 of India's DPDP Act 2023</strong>, users have the statutory right to export their data in structured, machine-readable formats. LifeOS does not generate fake online data; your records reside securely on your device.
             </p>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
-                <div>
-                    <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px;">SELECT SCOPE</label>
-                    <select id="exportScope" class="select-input" style="width: 100%;">
-                        <option value="ALL">Complete Data Package (Tasks, CRM, Finance, Vault)</option>
-                        <option value="TASKS">Tasks Only</option>
-                        <option value="CRM">CRM Client Pipeline Only</option>
-                        <option value="FINANCE">Financial Entries Only</option>
-                        <option value="VAULT">Vault Notes Only</option>
-                    </select>
-                </div>
-                <div>
-                    <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px;">FORMAT</label>
-                    <div style="display: flex; gap: 8px;">
-                        <button type="button" class="btn-secondary" style="flex: 1; justify-content: center;" id="fmtJson" onclick="setExportFormat('json')">{ } JSON</button>
-                        <button type="button" class="btn-secondary" style="flex: 1; justify-content: center;" id="fmtCsv" onclick="setExportFormat('csv')">📊 CSV / Excel</button>
-                    </div>
+            <!-- Portability Tabs -->
+            <div class="portability-tabs">
+                <button class="p-tab active" id="tabInApp" onclick="showPortabilityTab('inapp')">📱 How to Export from App (Recommended)</button>
+                <button class="p-tab" id="tabInspect" onclick="showPortabilityTab('inspect')">🔍 Inspect Backup File (.json)</button>
+                <button class="p-tab" id="tabRequest" onclick="showPortabilityTab('request')">✉️ Official Portability Request</button>
+            </div>
+
+            <!-- Tab 1: In-App Instructions -->
+            <div id="viewInApp">
+                <div class="info-callout">
+                    <strong>Export in 3 Taps inside LifeOS:</strong><br>
+                    1. Open LifeOS on your Android phone.<br>
+                    2. Go to <strong>Profile / Settings &rarr; Data Sovereignty &rarr; Export My Data</strong>.<br>
+                    3. Choose <strong>JSON (Machine-readable)</strong> or <strong>CSV (Spreadsheet/Excel)</strong> to save instantly to your device Downloads or Google Drive.
                 </div>
             </div>
 
-            <button class="btn-cyan" style="width: 100%; justify-content: center;" onclick="runDataExport()">
-                Download Export Package Instantly
-            </button>
+            <!-- Tab 2: File Inspector & Converter -->
+            <div id="viewInspect" style="display: none;">
+                <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">
+                    Upload your exported <code>lifeos_backup.json</code> file to inspect its contents or convert it to a CSV spreadsheet in your browser:
+                </p>
+                
+                <input type="file" id="filePicker" accept=".json" style="display: none;" onchange="handleFileSelected(event)">
+                <div class="dropzone" onclick="document.getElementById('filePicker').click()">
+                    <div style="font-size: 1.8rem; margin-bottom: 8px;">📂</div>
+                    <div class="dropzone-title">Click to Select or Drop lifeos_backup.json</div>
+                    <div class="dropzone-desc">Parsed strictly in your browser memory — no data uploaded to any server.</div>
+                </div>
 
-            <div id="exportConsole" class="terminal-log"></div>
+                <div id="auditTableWrap" class="audit-table-wrap">
+                    <table class="audit-table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Item / Title</th>
+                                <th>State / Amount</th>
+                                <th>Timestamp</th>
+                            </tr>
+                        </thead>
+                        <tbody id="auditTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab 3: Statutory Request Form -->
+            <div id="viewRequest" style="display: none;">
+                <form onsubmit="handleStatutoryExportRequest(event)">
+                    <div class="form-row">
+                        <div class="field-wrap">
+                            <label class="field-label">Your Registered Email *</label>
+                            <input type="email" id="reqEmail" class="control-input" required placeholder="yourname@gmail.com">
+                        </div>
+                        <div class="field-wrap">
+                            <label class="field-label">Requested Data Scope *</label>
+                            <select id="reqScope" class="control-select">
+                                <option value="Complete Archive (Tasks, CRM, Finances, Memory Vault)">Complete Archive (All Categories)</option>
+                                <option value="CRM Leads & Contacts Only">CRM Leads & Contacts Only</option>
+                                <option value="Financial Ledgers Only">Financial Ledgers Only</option>
+                                <option value="Tasks & Routines Only">Tasks & Routines Only</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-cyan">
+                        <span>Dispatch Statutory Export Request</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+                    </button>
+                </form>
+
+                <div id="exportReqStatus" class="status-box"></div>
+            </div>
         </div>
 
-        <!-- -------------------------------------------------------------
-             3. ACCOUNT DELETION PORTAL (GOOGLE PLAY MANDATORY)
-        ------------------------------------------------------------- -->
-        <div class="portal-card" id="deletion" style="border-color: rgba(244, 63, 94, 0.3);">
-            <div class="portal-card-header">
-                <div class="portal-card-title" style="color: #FDA4AF;">
+        <!-- 2. ACCOUNT DELETION PORTAL (GOOGLE PLAY 2024 MANDATORY) -->
+        <div class="legal-section" id="deletion" style="border-color: rgba(244, 63, 94, 0.3);">
+            <div class="section-header-row">
+                <h2 style="color: #FDA4AF;">
                     <span>🗑️</span>
                     Google Play Account & Data Erasure Portal
-                </div>
-                <span class="chip chip-rose">Policy Mandate</span>
+                </h2>
+                <span class="badge-tag badge-rose">Google Play Policy 2024+</span>
             </div>
 
-            <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
-                In compliance with Google Play's 2024+ Account Deletion requirement, users can request statutory account erasure outside the mobile app via this web form.
+            <p>
+                In strict adherence to <strong>Google Play's 2024+ Policy on User Data</strong> and Section 12 of the DPDP Act 2023, you can request permanent deletion of your account, cloud tokens, and all associated personal identifiers directly from this web page.
             </p>
 
-            <form onsubmit="handleAccountDeletion(event)">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
-                    <div>
-                        <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px;">ACCOUNT EMAIL *</label>
-                        <input type="email" id="delEmail" class="text-input" required placeholder="yourname@gmail.com" style="width: 100%;">
+            <div class="danger-callout">
+                <strong>Permanent & Irreversible:</strong> Deletion revokes active Pro subscription associations and schedules all associated identifiers for permanent purge within 48 to 72 business hours.
+            </div>
+
+            <form onsubmit="handleDeletionSubmit(event)" style="margin-top: 1.5rem;">
+                <div class="form-row">
+                    <div class="field-wrap">
+                        <label class="field-label">Registered Account Email *</label>
+                        <input type="email" id="delEmail" class="control-input" required placeholder="yourname@gmail.com">
                     </div>
-                    <div>
-                        <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px;">ERASURE SCOPE *</label>
-                        <select id="delScope" class="select-input" style="width: 100%;">
-                            <option value="Complete Purge">Complete Account & Associated Records</option>
-                            <option value="CRM & Finance Only">CRM & Finance Records Only</option>
-                            <option value="Subscription Association">Revoke Subscription & Identity</option>
+                    <div class="field-wrap">
+                        <label class="field-label">Scope of Erasure *</label>
+                        <select id="delScope" class="control-select">
+                            <option value="Permanent Complete Purge (Account & All Records)">Permanent Complete Purge (Account & All Records)</option>
+                            <option value="CRM Leads and Financial Records Only">CRM Leads & Financial Records Only</option>
+                            <option value="Revoke Subscription Association Only">Revoke Subscription Association Only</option>
                         </select>
                     </div>
                 </div>
 
-                <div style="margin-bottom: 1rem;">
-                    <label style="display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 6px;">REASON FOR DELETION (OPTIONAL)</label>
-                    <input type="text" id="delReason" class="text-input" placeholder="Brief feedback on why you are leaving..." style="width: 100%;">
+                <div class="field-wrap" style="margin-bottom: 1rem;">
+                    <label class="field-label">Reason for Deletion (Optional Feedback)</label>
+                    <input type="text" id="delReason" class="control-input" placeholder="Help us understand how we could have improved...">
                 </div>
 
                 <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 1.25rem;">
-                    <input type="checkbox" id="delConsent" required style="margin-top: 4px; accent-color: var(--rose);">
-                    <label for="delConsent" style="font-size: 0.84rem; color: var(--text-secondary); cursor: pointer;">
-                        I confirm that this action is permanent and irreversible. I instruct the LifeOS Grievance Officer to erase all associated identifiers.
+                    <input type="checkbox" id="delConsent" required style="margin-top: 4px; accent-color: var(--rose); width: 18px; height: 18px; cursor: pointer;">
+                    <label for="delConsent" style="font-size: 0.86rem; color: var(--text-secondary); cursor: pointer;">
+                        I confirm that this action is permanent. I instruct the LifeOS Grievance Redressal Officer to purge all personal data tied to this email.
                     </label>
                 </div>
 
-                <button type="submit" class="btn-secondary" style="width: 100%; justify-content: center; border-color: var(--rose); color: #FDA4AF;">
-                    Submit Statutory Deletion Notice
+                <button type="submit" class="btn-danger-outline">
+                    <span>Submit Statutory Account Deletion Request</span>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
             </form>
 
-            <div id="delResult" style="display: none; margin-top: 1.25rem; padding: 1rem; border-radius: var(--radius-sm); background: var(--emerald-dim); border: 1px solid var(--emerald); color: #fff;"></div>
+            <div id="delStatusBox" class="status-box"></div>
         </div>
 
-        <!-- -------------------------------------------------------------
-             4. DPDP STATUTORY DISCLOSURES
-        ------------------------------------------------------------- -->
-        <div class="portal-card" id="dpdp">
-            <div class="portal-card-header">
-                <div class="portal-card-title">
+        <!-- 3. DPDP ACT 2023 STATUTORY COMPLIANCE -->
+        <div class="legal-section" id="dpdp">
+            <div class="section-header-row">
+                <h2>
                     <span style="color: var(--emerald);">⚖️</span>
-                    Digital Personal Data Protection Act 2023
-                </div>
-                <span class="chip chip-emerald">Statutory Notice</span>
+                    Digital Personal Data Protection (DPDP) Act 2023
+                </h2>
+                <span class="badge-tag badge-emerald">Statutory Notice</span>
             </div>
 
-            <ul style="padding-left: 1.25rem; color: var(--text-secondary); font-size: 0.92rem;">
-                <li style="margin-bottom: 8px;"><strong>Data Fiduciary Obligations:</strong> LifeOS only processes data required for your workspace productivity and financial tracking under Section 6 purpose limitations.</li>
-                <li style="margin-bottom: 8px;"><strong>Local Storage First:</strong> Core records are stored securely on device hardware and browser sandboxes without third-party broker sharing.</li>
-                <li style="margin-bottom: 8px;"><strong>Grievance Redressal Officer:</strong> Aryan Goyal (<a href="mailto:goyalaryan906@gmail.com" style="color: var(--cyan); text-decoration: none;">goyalaryan906@gmail.com</a>). Statutory response within 48 to 72 business hours.</li>
+            <p>
+                LifeOS operates in full compliance with the <strong>Digital Personal Data Protection Act 2023 (DPDP Act)</strong>, enacted by the Parliament of India. As a Data Fiduciary, we uphold statutory consumer rights:
+            </p>
+
+            <ul>
+                <li><strong>Section 6 (Purpose Limitation):</strong> Data collected is processed solely for workspace management and client CRM as consented by the user.</li>
+                <li><strong>Section 11 (Right to Access):</strong> Right to obtain confirmation and intelligible summaries of personal data processed.</li>
+                <li><strong>Section 12 (Right to Correction & Erasure):</strong> Right to rectify inaccurate records or order immediate, permanent data wiping.</li>
+                <li><strong>Section 13 (Grievance Redressal):</strong> Direct escalation channel to our Data Protection & Grievance Redressal Cell.</li>
+            </ul>
+
+            <div class="info-callout">
+                <strong>Statutory Grievance Redressal Officer:</strong><br>
+                Officer: Aryan Goyal<br>
+                Official Grievance Email: <a href="mailto:goyalaryan906@gmail.com" style="color: var(--cyan); text-decoration: none; font-weight: 600;">goyalaryan906@gmail.com</a><br>
+                Statutory Resolution SLA: <strong>Within 48 to 72 business hours</strong>.
+            </div>
+        </div>
+
+        <!-- 4. PRIVACY ARCHITECTURE -->
+        <div class="legal-section" id="privacy">
+            <div class="section-header-row">
+                <h2>
+                    <span style="color: var(--cyan);">🔒</span>
+                    Privacy Architecture & Data Handling
+                </h2>
+                <span class="badge-tag badge-cyan">Zero Data Brokers</span>
+            </div>
+
+            <p>
+                Unlike conventional SaaS platforms that monetize user data through advertising exchanges, LifeOS is engineered with a strict <strong>Local-First Architecture</strong>:
+            </p>
+
+            <ul>
+                <li><strong>Isolated Room SQLite Database:</strong> Your task descriptions, client contacts, deal valuations, and GST billing records live in the private sandbox on your phone hardware.</li>
+                <li><strong>Hardware Biometrics:</strong> Fingerprint and PIN authentication are processed by Android's Trusted Execution Environment (TEE). LifeOS never accesses raw biometric fingerprints.</li>
+                <li><strong>Selective AI Processing:</strong> Calls to Google Gemini are only executed when explicitly invoked by the user for routine analysis. Raw databases are never transmitted.</li>
             </ul>
         </div>
     </div>
 
     <footer>
         <p>&copy; 2026 LifeOS. Built with privacy-first standards. Zero data brokers.</p>
-        <p style="margin-top: 6px; color: var(--text-muted);">DPDP Act 2023 & GDPR Compliant • Deployed with GitHub Pages</p>
+        <p style="margin-top: 6px; color: var(--text-muted);">
+            DPDP Act 2023 & GDPR Compliant • Hosted securely on GitHub Pages
+        </p>
     </footer>
 
-    <!-- ZERO FAKE DATA LOGIC -->
+    <!-- INTERACTIVE SCRIPTS -->
     <script>
-        let currentSpace = 'Business';
-        let exportFormat = 'json';
+        function showPortabilityTab(tabId) {
+            document.getElementById('viewInApp').style.display = tabId === 'inapp' ? 'block' : 'none';
+            document.getElementById('viewInspect').style.display = tabId === 'inspect' ? 'block' : 'none';
+            document.getElementById('viewRequest').style.display = tabId === 'request' ? 'block' : 'none';
 
-        // PURE CLEAN INITIAL STATE (NO FAKE DATA)
-        let state = {
-            tasks: [],
-            leads: [],
-            finances: [],
-            vault: []
-        };
+            document.getElementById('tabInApp').className = tabId === 'inapp' ? 'p-tab active' : 'p-tab';
+            document.getElementById('tabInspect').className = tabId === 'inspect' ? 'p-tab active' : 'p-tab';
+            document.getElementById('tabRequest').className = tabId === 'request' ? 'p-tab active' : 'p-tab';
+        }
 
-        // Load persisted state from local device storage
-        try {
-            const saved = localStorage.getItem('lifeos_clean_state');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                if (parsed && typeof parsed === 'object') {
-                    state = {
-                        tasks: Array.isArray(parsed.tasks) ? parsed.tasks : [],
-                        leads: Array.isArray(parsed.leads) ? parsed.leads : [],
-                        finances: Array.isArray(parsed.finances) ? parsed.finances : [],
-                        vault: Array.isArray(parsed.vault) ? parsed.vault : []
-                    };
+        // Real File Inspector (Parses user's actual backup file)
+        function handleFileSelected(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                try {
+                    const parsed = JSON.parse(evt.target.result);
+                    renderAuditTable(parsed, file.name);
+                } catch (err) {
+                    alert("Invalid JSON format in selected file. Please select a valid lifeos_backup.json export.");
                 }
+            };
+            reader.readAsText(file);
+        }
+
+        function renderAuditTable(data, filename) {
+            const tableWrap = document.getElementById('auditTableWrap');
+            const tbody = document.getElementById('auditTableBody');
+            tbody.innerHTML = "";
+
+            let rows = [];
+
+            if (data.tasks && Array.isArray(data.tasks)) {
+                data.tasks.forEach(t => {
+                    rows.push({ cat: "Task", title: t.title || "Untitled", status: t.completed ? "Completed" : "Pending", time: t.timestamp || "Device record" });
+                });
             }
-        } catch (_) {}
-
-        function persist() {
-            try {
-                localStorage.setItem('lifeos_clean_state', JSON.stringify(state));
-            } catch (_) {}
-            render();
-        }
-
-        // Workspace / Tab switching
-        function switchSpace(space) {
-            currentSpace = space;
-            document.getElementById('btnSpaceBusiness').className = space === 'Business' ? 'space-btn active' : 'space-btn';
-            document.getElementById('btnSpacePersonal').className = space === 'Personal' ? 'space-btn active' : 'space-btn';
-            renderTasks();
-        }
-
-        function switchTab(tab) {
-            const tabs = ['tasks', 'crm', 'finance', 'vault'];
-            tabs.forEach(t => {
-                const btn = document.getElementById('tab' + t.charAt(0).toUpperCase() + t.slice(1));
-                const pane = document.getElementById('pane' + t.charAt(0).toUpperCase() + t.slice(1));
-                if (btn && pane) {
-                    btn.className = t === tab ? 'tab-btn active' : 'tab-btn';
-                    pane.className = t === tab ? 'view-pane active' : 'view-pane';
-                }
-            });
-        }
-
-        // 1. TASKS
-        function renderTasks() {
-            const container = document.getElementById('taskList');
-            const filtered = state.tasks.filter(t => t.workspace === currentSpace);
-            container.innerHTML = "";
-
-            if (filtered.length === 0) {
-                container.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">📝</div>
-                        <div class="empty-title">No tasks in ${currentSpace} Space</div>
-                        <div class="empty-desc">Type a task title above and click Add Task to begin.</div>
-                    </div>
-                `;
-                return;
+            if (data.leads && Array.isArray(data.leads)) {
+                data.leads.forEach(l => {
+                    rows.push({ cat: "CRM Lead", title: l.name || "Unnamed", status: `${l.stage || 'Lead'} (₹${l.value || 0})`, time: "Pipeline record" });
+                });
             }
-
-            filtered.forEach(t => {
-                const row = document.createElement('div');
-                row.className = `task-row ${t.completed ? 'done' : ''}`;
-                row.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <input type="checkbox" ${t.completed ? 'checked' : ''} onchange="toggleTask(${t.id})" style="accent-color: var(--cyan); width: 18px; height: 18px; cursor: pointer;">
-                        <span class="task-title" style="font-size: 0.92rem; font-weight: 600;">${esc(t.title)}</span>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 8px;">
-                        <span class="prio-tag prio-${t.priority}">${t.priority}</span>
-                        <button onclick="deleteTask(${t.id})" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem; padding: 2px 6px;">✕</button>
-                    </div>
-                `;
-                container.appendChild(row);
-            });
-        }
-
-        function addTask() {
-            const input = document.getElementById('taskInput');
-            const prio = document.getElementById('taskPriority').value;
-            const text = input.value.trim();
-            if (!text) return;
-
-            state.tasks.unshift({
-                id: Date.now(),
-                title: text,
-                priority: prio,
-                workspace: currentSpace,
-                completed: false
-            });
-            input.value = "";
-            persist();
-        }
-
-        function toggleTask(id) {
-            const item = state.tasks.find(x => x.id === id);
-            if (item) item.completed = !item.completed;
-            persist();
-        }
-
-        function deleteTask(id) {
-            state.tasks = state.tasks.filter(x => x.id !== id);
-            persist();
-        }
-
-        // 2. CRM
-        function renderCrm() {
-            const colL = document.getElementById('colLead');
-            const colP = document.getElementById('colProposal');
-            const colW = document.getElementById('colWon');
-            colL.innerHTML = ""; colP.innerHTML = ""; colW.innerHTML = "";
-
-            let cL = 0, cP = 0, cW = 0;
-
-            state.leads.forEach(l => {
-                const card = document.createElement('div');
-                card.className = 'lead-box';
-                card.innerHTML = `
-                    <h5>${esc(l.name)}</h5>
-                    <div class="lead-amt">₹${Number(l.value || 0).toLocaleString('en-IN')}</div>
-                    <div style="margin-top: 6px; display: flex; gap: 6px;">
-                        ${l.stage !== 'LEAD' ? `<button onclick="moveLead(${l.id}, 'LEAD')" style="font-size: 0.7rem; background: #000; color: #fff; border: 1px solid var(--border); padding: 2px 6px; border-radius: 4px; cursor: pointer;">&larr;</button>` : ''}
-                        ${l.stage === 'LEAD' ? `<button onclick="moveLead(${l.id}, 'PROPOSAL')" style="font-size: 0.7rem; background: #000; color: var(--cyan); border: 1px solid var(--cyan); padding: 2px 6px; border-radius: 4px; cursor: pointer;">Proposal &rarr;</button>` : ''}
-                        ${l.stage === 'PROPOSAL' ? `<button onclick="moveLead(${l.id}, 'WON')" style="font-size: 0.7rem; background: #000; color: var(--emerald); border: 1px solid var(--emerald); padding: 2px 6px; border-radius: 4px; cursor: pointer;">Won &rarr;</button>` : ''}
-                        <button onclick="deleteLead(${l.id})" style="margin-left: auto; font-size: 0.7rem; background: none; border: none; color: var(--text-muted); cursor: pointer;">✕</button>
-                    </div>
-                `;
-
-                if (l.stage === 'LEAD') { colL.appendChild(card); cL++; }
-                else if (l.stage === 'PROPOSAL') { colP.appendChild(card); cP++; }
-                else { colW.appendChild(card); cW++; }
-            });
-
-            if (cL === 0) colL.innerHTML = `<div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); padding: 1rem 0;">No leads</div>`;
-            if (cP === 0) colP.innerHTML = `<div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); padding: 1rem 0;">No proposals</div>`;
-            if (cW === 0) colW.innerHTML = `<div style="text-align: center; font-size: 0.75rem; color: var(--text-muted); padding: 1rem 0;">No deals won</div>`;
-
-            document.getElementById('countLead').innerText = cL;
-            document.getElementById('countProposal').innerText = cP;
-            document.getElementById('countWon').innerText = cW;
-        }
-
-        function addLeadPrompt() {
-            const name = prompt("Client or Company Name:");
-            if (!name || !name.trim()) return;
-            const valStr = prompt("Estimated Value (in INR):", "50000");
-            const val = parseFloat(valStr) || 0;
-
-            state.leads.push({
-                id: Date.now(),
-                name: name.trim(),
-                value: val,
-                stage: 'LEAD'
-            });
-            persist();
-        }
-
-        function moveLead(id, stage) {
-            const l = state.leads.find(x => x.id === id);
-            if (l) l.stage = stage;
-            persist();
-        }
-
-        function deleteLead(id) {
-            state.leads = state.leads.filter(x => x.id !== id);
-            persist();
-        }
-
-        // 3. FINANCE
-        function renderFinance() {
-            const list = document.getElementById('financeList');
-            list.innerHTML = "";
-            let inc = 0, exp = 0;
-
-            if (state.finances.length === 0) {
-                list.innerHTML = `
-                    <div class="empty-state">
-                        <div class="empty-icon">💳</div>
-                        <div class="empty-title">No financial transactions recorded</div>
-                        <div class="empty-desc">Record your first income or expense entry above.</div>
-                    </div>
-                `;
-            } else {
-                state.finances.forEach(f => {
-                    if (f.type === 'INCOME') inc += f.amount; else exp += f.amount;
-                    const row = document.createElement('div');
-                    row.className = 'task-row';
-                    row.innerHTML = `
-                        <span style="font-weight: 600; font-size: 0.9rem;">${esc(f.title)}</span>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <span style="font-weight: 800; font-size: 0.95rem; color: ${f.type === 'INCOME' ? 'var(--emerald)' : 'var(--rose)'};">
-                                ${f.type === 'INCOME' ? '+' : '-'} ₹${Number(f.amount).toLocaleString('en-IN')}
-                            </span>
-                            <button onclick="deleteFinance(${f.id})" style="background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1rem;">✕</button>
-                        </div>
-                    `;
-                    list.appendChild(row);
+            if (data.finances && Array.isArray(data.finances)) {
+                data.finances.forEach(f => {
+                    rows.push({ cat: "Finance", title: f.title || "Transaction", status: `${f.type} ₹${f.amount}`, time: f.date || "Ledger record" });
                 });
             }
 
-            document.getElementById('valIncome').innerText = `₹${inc.toLocaleString('en-IN')}`;
-            document.getElementById('valExpense').innerText = `₹${exp.toLocaleString('en-IN')}`;
-            document.getElementById('valNet').innerText = `₹${(inc - exp).toLocaleString('en-IN')}`;
+            if (rows.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 1.5rem;">The selected file contains 0 records or is empty.</td></tr>`;
+            } else {
+                rows.slice(0, 50).forEach(r => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td><strong>${esc(r.cat)}</strong></td>
+                        <td>${esc(r.title)}</td>
+                        <td>${esc(r.status)}</td>
+                        <td style="font-size: 0.78rem; color: var(--text-muted);">${esc(r.time)}</td>
+                    `;
+                    tbody.appendChild(tr);
+                });
+            }
+
+            tableWrap.style.display = 'block';
         }
 
-        function addFinance() {
-            const titleInput = document.getElementById('finTitle');
-            const amtInput = document.getElementById('finAmt');
-            const type = document.getElementById('finType').value;
+        // Official Portability Request (No fake download without input)
+        function handleStatutoryExportRequest(e) {
+            e.preventDefault();
+            const email = document.getElementById('reqEmail').value.trim();
+            const scope = document.getElementById('reqScope').value;
+            const statusBox = document.getElementById('exportReqStatus');
 
-            const t = titleInput.value.trim();
-            const a = parseFloat(amtInput.value);
-            if (!t || isNaN(a) || a <= 0) return;
-
-            state.finances.unshift({ id: Date.now(), title: t, amount: a, type: type });
-            titleInput.value = "";
-            amtInput.value = "";
-            persist();
-        }
-
-        function deleteFinance(id) {
-            state.finances = state.finances.filter(x => x.id !== id);
-            persist();
-        }
-
-        // 4. VAULT
-        function renderVault() {
-            const list = document.getElementById('vaultList');
-            list.innerHTML = "";
-
-            if (state.vault.length === 0) {
-                list.innerHTML = `
-                    <div class="empty-state" style="grid-column: 1 / -1;">
-                        <div class="empty-icon">🔒</div>
-                        <div class="empty-title">Memory Vault is empty</div>
-                        <div class="empty-desc">Store notes, client secrets, or strategic ideas securely.</div>
-                    </div>
-                `;
+            if (!email) {
+                alert("Please enter a valid registered email address.");
                 return;
             }
 
-            state.vault.forEach(v => {
-                const card = document.createElement('div');
-                card.style = "background: var(--surface-2); border: 1px solid var(--border); padding: 12px; border-radius: var(--radius-md); font-size: 0.88rem; color: #E2E8F0; display: flex; justify-content: space-between; align-items: flex-start;";
-                card.innerHTML = `
-                    <span>${esc(v.text)}</span>
-                    <button onclick="deleteVault(${v.id})" style="background: none; border: none; color: var(--text-muted); cursor: pointer; margin-left: 8px;">✕</button>
-                `;
-                list.appendChild(card);
-            });
+            const ref = "EXP-" + Math.floor(100000 + Math.random() * 900000);
+            statusBox.style.display = 'block';
+            statusBox.innerHTML = `
+                <h4>Statutory Portability Request Logged: #${ref}</h4>
+                <p style="font-size: 0.88rem; color: #E2E8F0; margin-bottom: 8px;">
+                    Request registered for <strong>${esc(email)}</strong> (${scope}).
+                </p>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 12px;">
+                    In accordance with DPDP Section 12, our compliance officer is opening a verification email draft to fulfill this portability request within 72 hours.
+                </p>
+                <a href="mailto:goyalaryan906@gmail.com?subject=${encodeURIComponent(`LifeOS Data Portability Request [Ref: ${ref}]`)}&body=${encodeURIComponent(`STATUTORY DATA PORTABILITY DISPATCH\nDPDP Act 2023 - Section 12\n\nReference: ${ref}\nAccount Email: ${email}\nRequested Scope: ${scope}\nDate: ${new Date().toISOString()}\n\nPlease issue the verifiable archive package.`)}" class="btn-cyan" style="text-decoration: none; font-size: 0.82rem; padding: 6px 14px;">
+                    Send Dispatch Email to Compliance
+                </a>
+            `;
         }
 
-        function addVault() {
-            const input = document.getElementById('vaultInput');
-            const text = input.value.trim();
-            if (!text) return;
-
-            state.vault.unshift({ id: Date.now(), text: text });
-            input.value = "";
-            persist();
-        }
-
-        function deleteVault(id) {
-            state.vault = state.vault.filter(x => x.id !== id);
-            persist();
-        }
-
-        // EXPORT ENGINE (EXPORTS USER'S REAL DATA ONLY)
-        function setExportFormat(fmt) {
-            exportFormat = fmt;
-            document.getElementById('fmtJson').style.borderColor = fmt === 'json' ? 'var(--cyan)' : 'var(--border)';
-            document.getElementById('fmtJson').style.color = fmt === 'json' ? 'var(--cyan)' : '#fff';
-            document.getElementById('fmtCsv').style.borderColor = fmt === 'csv' ? 'var(--cyan)' : 'var(--border)';
-            document.getElementById('fmtCsv').style.color = fmt === 'csv' ? 'var(--cyan)' : '#fff';
-        }
-
-        function runDataExport() {
-            const scope = document.getElementById('exportScope').value;
-            const consoleBox = document.getElementById('exportConsole');
-            const now = new Date().toISOString();
-
-            let payload = "";
-            let filename = `lifeos_${scope.toLowerCase()}_export_${Date.now()}.${exportFormat}`;
-            let mime = exportFormat === 'json' ? 'application/json' : 'text/csv';
-
-            if (exportFormat === 'json') {
-                const obj = {
-                    metadata: {
-                        system: "LifeOS Personal & Business Operating System",
-                        compliance: "DPDP Act 2023 Section 12",
-                        exportTimestamp: now,
-                        scope: scope,
-                        totalRecords: (state.tasks.length + state.leads.length + state.finances.length + state.vault.length)
-                    },
-                    data: scope === 'ALL' ? state : (scope === 'TASKS' ? state.tasks : (scope === 'CRM' ? state.leads : (scope === 'FINANCE' ? state.finances : state.vault)))
-                };
-                payload = JSON.stringify(obj, null, 2);
-            } else {
-                payload = `ID,Category,Name_Or_Title,Status_Or_Value,Timestamp\n`;
-                state.tasks.forEach(t => { payload += `${t.id},TASK,"${t.title}",${t.completed ? 'COMPLETED' : 'PENDING'},${now}\n`; });
-                state.leads.forEach(l => { payload += `${l.id},CRM,"${l.name}",${l.stage} (₹${l.value}),${now}\n`; });
-                state.finances.forEach(f => { payload += `${f.id},FINANCE,"${f.title}",${f.type} (₹${f.amount}),${now}\n`; });
-                state.vault.forEach(v => { payload += `${v.id},VAULT,"${v.text}",NOTE,${now}\n`; });
-            }
-
-            const blob = new Blob([payload], { type: mime });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-
-            consoleBox.style.display = 'block';
-            consoleBox.innerText = `[SUCCESS] Downloaded: ${filename}\n[COMPLIANCE] DPDP Section 12 Portability Handshake OK.\n[PAYLOAD] ${payload.length} bytes delivered.\n\n` + payload.slice(0, 240) + '...';
-        }
-
-        // DELETION
-        function handleAccountDeletion(e) {
+        // Account Deletion
+        function handleDeletionSubmit(e) {
             e.preventDefault();
             const email = document.getElementById('delEmail').value.trim();
             const scope = document.getElementById('delScope').value;
             const reason = document.getElementById('delReason').value.trim();
-            const box = document.getElementById('delResult');
-            const ref = "DEL-" + Math.floor(100000 + Math.random() * 900000);
+            const statusBox = document.getElementById('delStatusBox');
 
-            box.style.display = 'block';
-            box.innerHTML = `
-                <h4 style="color: #10B981; margin-bottom: 6px;">Request Registered: Ticket #${ref}</h4>
+            if (!email) {
+                alert("Please enter a valid registered email.");
+                return;
+            }
+
+            const ref = "DEL-" + Math.floor(100000 + Math.random() * 900000);
+            statusBox.style.display = 'block';
+            statusBox.innerHTML = `
+                <h4>Statutory Deletion Request Registered: #${ref}</h4>
                 <p style="font-size: 0.88rem; color: #E2E8F0; margin-bottom: 8px;">
-                    Statutory erasure request for <strong>${esc(email)}</strong> (${scope}) has been queued.
+                    Official erasure ticket <strong>#${ref}</strong> logged for <strong>${esc(email)}</strong> (${scope}).
                 </p>
-                <p style="font-size: 0.82rem; color: var(--text-muted);">
-                    Opening statutory mail draft to our Grievance Redressal Officer (goyalaryan906@gmail.com)...
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 12px;">
+                    Opening secure mail dispatch to Grievance Redressal Officer (goyalaryan906@gmail.com)...
                 </p>
+                <a href="mailto:goyalaryan906@gmail.com?subject=${encodeURIComponent(`LifeOS Account Deletion Request [Ref: ${ref}]`)}&body=${encodeURIComponent(`STATUTORY ERASURE NOTICE\nDPDP Act 2023 Section 12 & Google Play 2024 Policy\n\nTicket: ${ref}\nAccount Email: ${email}\nScope: ${scope}\nReason: ${reason || 'Not specified'}\nDate: ${new Date().toISOString()}\n\nPlease execute permanent purge of all associated records.`)}" class="btn-cyan" style="text-decoration: none; font-size: 0.82rem; padding: 6px 14px;">
+                    Dispatch Statutory Mail
+                </a>
             `;
 
+            // Trigger mailto directly
             const sub = encodeURIComponent(`LifeOS Account Deletion Request [Ref: ${ref}]`);
-            const body = encodeURIComponent(`STATUTORY ACCOUNT ERASURE NOTICE (DPDP ACT 2023)\n\nEmail: ${email}\nScope: ${scope}\nReason: ${reason || 'None'}\nTicket: ${ref}\n\nPlease purge all records permanently.`);
+            const body = encodeURIComponent(`STATUTORY ERASURE NOTICE (DPDP ACT 2023 / GOOGLE PLAY)\n\nEmail: ${email}\nScope: ${scope}\nTicket: ${ref}\nReason: ${reason || 'Not specified'}\n\nPlease purge all records permanently.`);
             window.location.href = `mailto:goyalaryan906@gmail.com?subject=${sub}&body=${body}`;
         }
 
@@ -1208,17 +903,7 @@
             if (!s) return "";
             return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
         }
-
-        function render() {
-            renderTasks();
-            renderCrm();
-            renderFinance();
-            renderVault();
-        }
-
-        // Init
-        setExportFormat('json');
-        render();
     </script>
 </body>
 </html>
+

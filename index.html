@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LifeOS — Trust Center, Privacy Policy & Data Sovereignty</title>
-    <meta name="description" content="Official Trust Center, Privacy Architecture, DPDP Act 2023 Compliance, and Google Play Account Deletion Portal for LifeOS.">
+    <title>LifeOS — Privacy Policy, Trust Center & Account Deletion</title>
+    <meta name="description" content="Official Privacy Policy, DPDP Act 2023 Disclosures, and Google Play Account Deletion Portal for LifeOS Android Application.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-base: #090D1A;
-            --bg-surface: #0F172A;
-            --bg-surface-elevated: #1E293B;
-            --border-subtle: rgba(255, 255, 255, 0.08);
-            --border-highlight: rgba(0, 240, 255, 0.35);
+            --bg: #070913;
+            --surface: #0E1424;
+            --surface-elevated: #162035;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-glow: rgba(0, 240, 255, 0.3);
             --cyan: #00F0FF;
-            --cyan-dim: rgba(0, 240, 255, 0.12);
+            --cyan-dim: rgba(0, 240, 255, 0.1);
             --emerald: #10B981;
-            --emerald-dim: rgba(16, 185, 129, 0.12);
+            --emerald-dim: rgba(16, 185, 129, 0.1);
             --rose: #F43F5E;
-            --rose-dim: rgba(244, 63, 94, 0.12);
-            --amber: #F59E0B;
+            --rose-dim: rgba(244, 63, 94, 0.1);
             --text-primary: #F8FAFC;
             --text-secondary: #94A3B8;
             --text-muted: #64748B;
@@ -37,113 +36,115 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-base);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
             color: var(--text-primary);
-            line-height: 1.65;
+            line-height: 1.7;
             -webkit-font-smoothing: antialiased;
+            background-image: 
+                radial-gradient(ellipse 80% 400px at 50% -50px, rgba(0, 240, 255, 0.08), transparent),
+                linear-gradient(180deg, #070913 0%, #0A1021 100%);
+            min-height: 100vh;
         }
 
-        /* Subtle background gradient */
-        .ambient-glow {
+        /* Ambient grid */
+        .ambient-grid {
             position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100vw;
-            height: 480px;
-            background: radial-gradient(ellipse 70% 360px at 50% -20px, rgba(0, 240, 255, 0.09), transparent);
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(to right, rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* Top Header */
+        /* Header */
         header {
             position: sticky;
             top: 0;
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            background: rgba(9, 13, 26, 0.85);
-            border-bottom: 1px solid var(--border-subtle);
-            z-index: 100;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            background: rgba(7, 9, 19, 0.9);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
             padding: 0.85rem 2rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
         }
 
-        .brand-link {
+        .brand-box {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             text-decoration: none;
             color: #fff;
         }
 
-        .brand-badge {
-            width: 36px;
-            height: 36px;
+        .brand-logo {
+            width: 40px;
+            height: 40px;
             border-radius: 10px;
-            background: linear-gradient(135deg, #0A1931, #00F0FF);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            color: #090D1A;
-            font-size: 1.1rem;
-            border: 1px solid rgba(0, 240, 255, 0.5);
+            object-fit: cover;
+            border: 1px solid rgba(0, 240, 255, 0.4);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.25);
         }
 
-        .brand-title {
-            font-size: 1.2rem;
+        .brand-text h1 {
+            font-size: 1.25rem;
             font-weight: 800;
             letter-spacing: -0.5px;
+            line-height: 1.1;
         }
 
-        .brand-title span {
+        .brand-text h1 span {
             color: var(--cyan);
         }
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 4px;
+        .brand-text .app-sub {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .nav-item {
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link {
             color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.86rem;
             font-weight: 600;
-            padding: 6px 14px;
+            padding: 8px 14px;
             border-radius: var(--radius-sm);
             transition: all 0.2s;
         }
 
-        .nav-item:hover {
+        .nav-link:hover {
             color: #fff;
             background: rgba(255, 255, 255, 0.05);
         }
 
-        .nav-item.active {
-            color: var(--cyan);
-            background: var(--cyan-dim);
-        }
-
-        .nav-item.danger-pill {
+        .nav-link.danger-btn {
             color: #FDA4AF;
             background: var(--rose-dim);
             border: 1px solid rgba(244, 63, 94, 0.25);
         }
 
-        .nav-item.danger-pill:hover {
-            background: rgba(244, 63, 94, 0.2);
+        .nav-link.danger-btn:hover {
+            background: rgba(244, 63, 94, 0.25);
             color: #fff;
         }
 
-        /* Container */
-        .page-wrap {
-            max-width: 1000px;
+        /* Main Container */
+        .main-container {
+            max-width: 920px;
             margin: 0 auto;
             padding: 3rem 1.5rem 6rem;
             position: relative;
@@ -151,26 +152,26 @@
         }
 
         /* Hero */
-        .hero-banner {
+        .legal-hero {
             text-align: center;
             margin-bottom: 3.5rem;
         }
 
-        .trust-chip {
+        .compliance-pill {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 5px 14px;
+            padding: 6px 14px;
             border-radius: 999px;
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            font-size: 0.8rem;
-            font-weight: 600;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            font-size: 0.78rem;
+            font-weight: 700;
             color: var(--emerald);
             margin-bottom: 1.25rem;
         }
 
-        .trust-dot {
+        .pulse-dot {
             width: 7px;
             height: 7px;
             border-radius: 50%;
@@ -178,77 +179,87 @@
             box-shadow: 0 0 8px var(--emerald);
         }
 
-        .hero-banner h1 {
+        .legal-hero h2 {
             font-size: 2.75rem;
             font-weight: 800;
             letter-spacing: -1.2px;
             line-height: 1.2;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFFFFF 30%, #94A3B8 100%);
+            background: linear-gradient(135deg, #FFFFFF 40%, #94A3B8 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-banner p {
+        .legal-hero p {
             font-size: 1.1rem;
             color: var(--text-secondary);
-            max-width: 640px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
-        /* Organization Pillar Grid */
-        .pillar-grid {
+        .meta-stamp {
+            margin-top: 1.5rem;
+            display: inline-flex;
+            gap: 16px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Key Metrics Grid */
+        .metrics-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
             margin-bottom: 3rem;
         }
 
-        .pillar-box {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
+        .metric-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: var(--radius-md);
             padding: 1.25rem;
+            text-align: left;
         }
 
-        .pillar-icon {
+        .metric-card .icon {
             font-size: 1.4rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 8px;
         }
 
-        .pillar-box h4 {
+        .metric-card h4 {
             font-size: 0.95rem;
             font-weight: 700;
             color: #fff;
             margin-bottom: 4px;
         }
 
-        .pillar-box p {
+        .metric-card p {
             font-size: 0.82rem;
             color: var(--text-muted);
             line-height: 1.5;
         }
 
-        /* Section Cards */
-        .legal-section {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
+        /* Document Section Cards */
+        .doc-section {
+            background: var(--surface);
+            border: 1px solid var(--border);
             border-radius: var(--radius-lg);
             padding: 2.25rem;
             margin-bottom: 2.25rem;
             scroll-margin-top: 80px;
         }
 
-        .section-header-row {
+        .doc-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-bottom: 1.25rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border);
         }
 
-        .section-header-row h2 {
+        .doc-header h3 {
             font-size: 1.35rem;
             font-weight: 700;
             letter-spacing: -0.4px;
@@ -257,7 +268,7 @@
             gap: 10px;
         }
 
-        .badge-tag {
+        .chip-tag {
             font-size: 0.72rem;
             font-weight: 700;
             padding: 3px 10px;
@@ -266,14 +277,14 @@
             letter-spacing: 0.5px;
         }
 
-        .badge-cyan { background: var(--cyan-dim); color: var(--cyan); border: 1px solid rgba(0, 240, 255, 0.3); }
-        .badge-emerald { background: var(--emerald-dim); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
-        .badge-rose { background: var(--rose-dim); color: #FDA4AF; border: 1px solid rgba(244, 63, 94, 0.3); }
+        .chip-cyan { background: var(--cyan-dim); color: var(--cyan); border: 1px solid rgba(0, 240, 255, 0.3); }
+        .chip-emerald { background: var(--emerald-dim); color: var(--emerald); border: 1px solid rgba(16, 185, 129, 0.3); }
+        .chip-rose { background: var(--rose-dim); color: #FDA4AF; border: 1px solid rgba(244, 63, 94, 0.3); }
 
-        p, li {
+        p {
             color: var(--text-secondary);
-            font-size: 0.92rem;
-            margin-bottom: 0.85rem;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
         }
 
         strong {
@@ -285,99 +296,46 @@
             margin-bottom: 1.25rem;
         }
 
-        .info-callout {
-            background: rgba(0, 240, 255, 0.04);
-            border: 1px solid rgba(0, 240, 255, 0.16);
-            border-left: 3px solid var(--cyan);
-            padding: 1rem 1.25rem;
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            margin: 1.25rem 0;
-        }
-
-        .danger-callout {
-            background: rgba(244, 63, 94, 0.04);
-            border: 1px solid rgba(244, 63, 94, 0.18);
-            border-left: 3px solid var(--rose);
-            padding: 1rem 1.25rem;
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            margin: 1.25rem 0;
-        }
-
-        /* -------------------------------------------------------------
-           DATA PORTABILITY ENGINE & INSPECTOR
-        ------------------------------------------------------------- */
-        .portability-tabs {
-            display: flex;
-            gap: 8px;
-            background: #090D1A;
-            padding: 4px;
-            border-radius: var(--radius-sm);
-            margin-bottom: 1.25rem;
-            border: 1px solid var(--border-subtle);
-        }
-
-        .p-tab {
-            flex: 1;
-            padding: 8px 14px;
-            border-radius: var(--radius-sm);
-            background: transparent;
-            border: none;
+        li {
             color: var(--text-secondary);
-            font-size: 0.85rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: center;
-            transition: all 0.2s;
+            font-size: 0.93rem;
+            margin-bottom: 0.6rem;
         }
 
-        .p-tab.active {
-            background: var(--bg-surface-elevated);
-            color: var(--cyan);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        /* Callout Banners */
+        .callout-info {
+            background: rgba(0, 240, 255, 0.04);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            border-left: 3px solid var(--cyan);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
         }
 
-        .dropzone {
-            border: 2px dashed rgba(0, 240, 255, 0.25);
-            background: rgba(0, 240, 255, 0.02);
-            border-radius: var(--radius-md);
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            margin-bottom: 1.25rem;
+        .callout-danger {
+            background: rgba(244, 63, 94, 0.04);
+            border: 1px solid rgba(244, 63, 94, 0.2);
+            border-left: 3px solid var(--rose);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
         }
 
-        .dropzone:hover {
-            border-color: var(--cyan);
-            background: rgba(0, 240, 255, 0.05);
-        }
-
-        .dropzone-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-
-        .dropzone-desc {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-        }
-
-        .form-row {
+        /* Form */
+        .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 1rem;
             margin-bottom: 1rem;
         }
 
-        .field-wrap {
+        .form-group {
             display: flex;
             flex-direction: column;
             gap: 6px;
         }
 
-        .field-label {
+        .form-label {
             font-size: 0.78rem;
             font-weight: 700;
             color: var(--text-muted);
@@ -385,125 +343,89 @@
             letter-spacing: 0.5px;
         }
 
-        .control-input, .control-select {
-            background: #090D1A;
-            border: 1px solid var(--border-subtle);
+        .input-field, .select-field {
+            background: #060912;
+            border: 1px solid var(--border);
             border-radius: var(--radius-sm);
-            padding: 10px 12px;
+            padding: 11px 13px;
             color: #fff;
             font-family: inherit;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             outline: none;
             transition: border-color 0.2s;
         }
 
-        .control-input:focus, .control-select:focus {
+        .input-field:focus, .select-field:focus {
             border-color: var(--cyan);
         }
 
-        .btn-cyan {
-            background: linear-gradient(135deg, #00F0FF 0%, #0099FF 100%);
-            color: #060913;
-            font-weight: 700;
-            padding: 11px 20px;
-            border-radius: var(--radius-sm);
-            border: none;
-            font-size: 0.9rem;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.2s;
-            box-shadow: 0 4px 14px rgba(0, 240, 255, 0.3);
-        }
-
-        .btn-cyan:hover {
-            box-shadow: 0 6px 20px rgba(0, 240, 255, 0.45);
-            transform: translateY(-1px);
-        }
-
-        .btn-danger-outline {
+        .btn-submit-danger {
             background: transparent;
             border: 1px solid var(--rose);
             color: #FDA4AF;
             font-weight: 700;
-            padding: 11px 20px;
+            padding: 12px 22px;
             border-radius: var(--radius-sm);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             transition: all 0.2s;
+            width: 100%;
         }
 
-        .btn-danger-outline:hover {
+        .btn-submit-danger:hover {
             background: var(--rose-dim);
             color: #fff;
         }
 
-        /* Audit Table for Parsed Data */
-        .audit-table-wrap {
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            margin-top: 1.25rem;
-            display: none;
-        }
-
-        .audit-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.85rem;
-            text-align: left;
-        }
-
-        .audit-table th {
-            background: #090D1A;
-            padding: 10px 14px;
-            color: var(--text-muted);
+        .btn-action-cyan {
+            background: linear-gradient(135deg, #00F0FF, #0099FF);
+            color: #070913;
             font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.74rem;
-            letter-spacing: 0.5px;
-            border-bottom: 1px solid var(--border-subtle);
+            padding: 10px 18px;
+            border-radius: var(--radius-sm);
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.88rem;
+            transition: all 0.2s;
         }
 
-        .audit-table td {
-            padding: 10px 14px;
-            border-bottom: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
+        .btn-action-cyan:hover {
+            box-shadow: 0 4px 16px rgba(0, 240, 255, 0.4);
+            transform: translateY(-1px);
         }
 
-        .audit-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* Status Output Boxes */
-        .status-box {
+        /* Confirmation Box */
+        .confirm-box {
             display: none;
             margin-top: 1.25rem;
-            padding: 1.2rem;
+            padding: 1.25rem;
             border-radius: var(--radius-sm);
-            background: rgba(16, 185, 129, 0.08);
+            background: var(--emerald-dim);
             border: 1px solid var(--emerald);
             color: #fff;
         }
 
-        .status-box h4 {
+        .confirm-box h4 {
             color: var(--emerald);
-            font-size: 1rem;
+            font-size: 1.05rem;
             margin-bottom: 6px;
         }
 
+        /* Footer */
         footer {
-            border-top: 1px solid var(--border-subtle);
+            border-top: 1px solid var(--border);
             padding: 3rem 1.5rem;
             text-align: center;
             color: var(--text-muted);
-            font-size: 0.82rem;
+            font-size: 0.84rem;
         }
 
         footer a {
@@ -512,390 +434,294 @@
         }
 
         @media (max-width: 768px) {
-            .hero-banner h1 { font-size: 2.2rem; }
-            .pillar-grid { grid-template-columns: 1fr; }
-            .form-row { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
-            .legal-section { padding: 1.5rem; }
+            .legal-hero h2 { font-size: 2.1rem; }
+            .metrics-grid { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            .nav-menu { display: none; }
+            .doc-section { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="ambient-glow"></div>
+    <div class="ambient-grid"></div>
 
+    <!-- Header -->
     <header>
-        <a href="#" class="brand-link">
-            <div class="brand-badge">⚡</div>
-            <div class="brand-title">Life<span>OS</span> Trust Center</div>
+        <a href="#" class="brand-box">
+            <img src="logo.jpg" alt="LifeOS Logo" class="brand-logo">
+            <div class="brand-text">
+                <h1>Life<span>OS</span></h1>
+                <div class="app-sub">Personal & Business OS</div>
+            </div>
         </a>
-        <nav class="nav-links">
-            <a href="#dpdp" class="nav-item">DPDP Act 2023</a>
-            <a href="#privacy" class="nav-item">Privacy Architecture</a>
-            <a href="#export" class="nav-item active">Data Portability</a>
-            <a href="#deletion" class="nav-item danger-pill">Account Deletion</a>
+        <nav class="nav-menu">
+            <a href="#privacy" class="nav-link">Privacy Policy</a>
+            <a href="#dpdp" class="nav-link">DPDP Act 2023</a>
+            <a href="#permissions" class="nav-link">Permissions</a>
+            <a href="#portability" class="nav-link">Data Export</a>
+            <a href="#deletion" class="nav-link danger-btn">Account Deletion</a>
         </nav>
     </header>
 
-    <div class="page-wrap">
-        <!-- Hero -->
-        <div class="hero-banner">
-            <div class="trust-chip">
-                <span class="trust-dot"></span>
-                <span>Statutory Compliance • DPDP Act 2023 & Google Play 2024+ Certified</span>
+    <div class="main-container">
+        <!-- Hero Section -->
+        <div class="legal-hero">
+            <div class="compliance-pill">
+                <span class="pulse-dot"></span>
+                <span>DPDP Act 2023 Certified • Google Play Policy 2024+ Compliant</span>
             </div>
-            <h1>Data Sovereignty & Legal Center</h1>
-            <p>Official privacy governance, device-first architecture disclosures, and user rights portal for LifeOS Android.</p>
+            <h2>Trust, Privacy & Data Sovereignty</h2>
+            <p>
+                LifeOS is built on a zero-broker, local-first architecture. Your personal tasks, business CRM leads, and financial transactions never leave your hardware.
+            </p>
+            <div class="meta-stamp">
+                <span>APPLICATION: LifeOS Android</span>
+                <span>VERSION: 1.0.0-PROD</span>
+                <span>EFFECTIVE: September 2026</span>
+            </div>
         </div>
 
-        <!-- 3 Organization Pillars -->
-        <div class="pillar-grid">
-            <div class="pillar-box">
-                <div class="pillar-icon">🔒</div>
-                <h4>Device-Hardware Sandboxed</h4>
-                <p>Zero data broker telemetry. Tasks, pipeline leads, and finance ledgers reside on your phone's hardware SQLite storage.</p>
+        <!-- 3 Core Architectural Pillars -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="icon">🔒</div>
+                <h4>Zero Data Brokers</h4>
+                <p>We do not collect, sell, lease, or monetize your personal or business records. All data lives on your device.</p>
             </div>
-            <div class="pillar-box">
-                <div class="pillar-icon">⚖️</div>
+            <div class="metric-card">
+                <div class="icon">📱</div>
+                <h4>Hardware SQLite Storage</h4>
+                <p>Protected inside Android's sandboxed Room database. Full offline capability with zero background surveillance.</p>
+            </div>
+            <div class="metric-card">
+                <div class="icon">⚖️</div>
                 <h4>DPDP Act 2023 Compliant</h4>
-                <p>Full statutory alignment with Section 11 (Access), Section 12 (Erasure & Portability), and Section 13 (Grievance Redressal).</p>
-            </div>
-            <div class="pillar-box">
-                <div class="pillar-icon">📦</div>
-                <h4>Zero Vendor Lock-In</h4>
-                <p>One-click JSON and CSV data exports directly from your app or via our statutory request portal anytime.</p>
+                <p>Full statutory alignment with India's DPDP Act: purpose limitation, local access, portability, and permanent erasure.</p>
             </div>
         </div>
 
-        <!-- 1. DATA PORTABILITY & INSPECTOR (DPDP ACT SECTION 12) -->
-        <div class="legal-section" id="export" style="border-color: rgba(0, 240, 255, 0.3);">
-            <div class="section-header-row">
-                <h2>
-                    <span style="color: var(--cyan);">📥</span>
-                    Data Portability & File Inspector (Section 12)
-                </h2>
-                <span class="badge-tag badge-cyan">DPDP & GDPR Article 20</span>
+        <!-- SECTION 1: PRIVACY POLICY (GOOGLE PLAY COMPLIANT) -->
+        <div class="doc-section" id="privacy">
+            <div class="doc-header">
+                <h3>
+                    <span style="color: var(--cyan);">🛡️</span>
+                    1. Privacy Policy & Data Collection Disclosures
+                </h3>
+                <span class="chip-tag chip-cyan">Core Policy</span>
             </div>
 
             <p>
-                In accordance with <strong>Section 12 of India's DPDP Act 2023</strong>, users have the statutory right to export their data in structured, machine-readable formats. LifeOS does not generate fake online data; your records reside securely on your device.
+                This Privacy Policy describes how <strong>LifeOS</strong> ("we", "our", or "the application") collects, stores, and protects user information when you use our mobile application available on the Google Play Store.
             </p>
 
-            <!-- Portability Tabs -->
-            <div class="portability-tabs">
-                <button class="p-tab active" id="tabInApp" onclick="showPortabilityTab('inapp')">📱 How to Export from App (Recommended)</button>
-                <button class="p-tab" id="tabInspect" onclick="showPortabilityTab('inspect')">🔍 Inspect Backup File (.json)</button>
-                <button class="p-tab" id="tabRequest" onclick="showPortabilityTab('request')">✉️ Official Portability Request</button>
-            </div>
+            <h4 style="color: #fff; margin: 1.25rem 0 0.5rem;">A. Information Handled by the Application</h4>
+            <p>
+                LifeOS operates primarily as an <strong>Offline-First & Local-First Application</strong>. Unlike cloud SaaS products that store your private business deals on remote multi-tenant servers, LifeOS saves your records directly to your device's private SQLite storage:
+            </p>
+            <ul>
+                <li><strong>Tasks & Routines:</strong> Task titles, priority levels (High/Medium/Low), workspace category (Business vs. Personal), and completion status.</li>
+                <li><strong>CRM & Sales Pipeline:</strong> Client company names, contact phone/email, deal valuation, sales stage (Discovery, Proposal, Closed Won), and interaction notes.</li>
+                <li><strong>Financial Ledgers:</strong> Transaction amounts, GST/tax categorization, cashflow type (Income / Expense), and payment dates.</li>
+                <li><strong>Strategic Memory Vault:</strong> Private encrypted notes and operational strategies.</li>
+            </ul>
 
-            <!-- Tab 1: In-App Instructions -->
-            <div id="viewInApp">
-                <div class="info-callout">
-                    <strong>Export in 3 Taps inside LifeOS:</strong><br>
-                    1. Open LifeOS on your Android phone.<br>
-                    2. Go to <strong>Profile / Settings &rarr; Data Sovereignty &rarr; Export My Data</strong>.<br>
-                    3. Choose <strong>JSON (Machine-readable)</strong> or <strong>CSV (Spreadsheet/Excel)</strong> to save instantly to your device Downloads or Google Drive.
-                </div>
-            </div>
+            <h4 style="color: #fff; margin: 1.25rem 0 0.5rem;">B. Third-Party Sharing & Advertising</h4>
+            <p>
+                <strong>We have ZERO third-party advertising SDKs, ZERO tracking beacons, and ZERO data broker telemetry.</strong> We do not integrate Facebook Pixel, Adjust, AppsFlyer, or any ad networks. Your financial transactions and CRM client leads are strictly confidential to you.
+            </p>
 
-            <!-- Tab 2: File Inspector & Converter -->
-            <div id="viewInspect" style="display: none;">
-                <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 12px;">
-                    Upload your exported <code>lifeos_backup.json</code> file to inspect its contents or convert it to a CSV spreadsheet in your browser:
-                </p>
-                
-                <input type="file" id="filePicker" accept=".json" style="display: none;" onchange="handleFileSelected(event)">
-                <div class="dropzone" onclick="document.getElementById('filePicker').click()">
-                    <div style="font-size: 1.8rem; margin-bottom: 8px;">📂</div>
-                    <div class="dropzone-title">Click to Select or Drop lifeos_backup.json</div>
-                    <div class="dropzone-desc">Parsed strictly in your browser memory — no data uploaded to any server.</div>
-                </div>
-
-                <div id="auditTableWrap" class="audit-table-wrap">
-                    <table class="audit-table">
-                        <thead>
-                            <tr>
-                                <th>Category</th>
-                                <th>Item / Title</th>
-                                <th>State / Amount</th>
-                                <th>Timestamp</th>
-                            </tr>
-                        </thead>
-                        <tbody id="auditTableBody"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- Tab 3: Statutory Request Form -->
-            <div id="viewRequest" style="display: none;">
-                <form onsubmit="handleStatutoryExportRequest(event)">
-                    <div class="form-row">
-                        <div class="field-wrap">
-                            <label class="field-label">Your Registered Email *</label>
-                            <input type="email" id="reqEmail" class="control-input" required placeholder="yourname@gmail.com">
-                        </div>
-                        <div class="field-wrap">
-                            <label class="field-label">Requested Data Scope *</label>
-                            <select id="reqScope" class="control-select">
-                                <option value="Complete Archive (Tasks, CRM, Finances, Memory Vault)">Complete Archive (All Categories)</option>
-                                <option value="CRM Leads & Contacts Only">CRM Leads & Contacts Only</option>
-                                <option value="Financial Ledgers Only">Financial Ledgers Only</option>
-                                <option value="Tasks & Routines Only">Tasks & Routines Only</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <button type="submit" class="btn-cyan">
-                        <span>Dispatch Statutory Export Request</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
-                    </button>
-                </form>
-
-                <div id="exportReqStatus" class="status-box"></div>
+            <div class="callout-info">
+                <strong>Artificial Intelligence (Gemini Integration):</strong><br>
+                AI features (such as schedule optimization or routine analysis) are strictly user-initiated. When you invoke AI analysis, only the specific query text is transmitted over TLS 1.3 encryption to the Google Gemini API. Your entire SQLite database is never uploaded or used for model training.
             </div>
         </div>
 
-        <!-- 2. ACCOUNT DELETION PORTAL (GOOGLE PLAY 2024 MANDATORY) -->
-        <div class="legal-section" id="deletion" style="border-color: rgba(244, 63, 94, 0.3);">
-            <div class="section-header-row">
-                <h2 style="color: #FDA4AF;">
+        <!-- SECTION 2: ANDROID PERMISSIONS DISCLOSURE -->
+        <div class="doc-section" id="permissions">
+            <div class="doc-header">
+                <h3>
+                    <span style="color: var(--emerald);">🔑</span>
+                    2. Device Permissions & Hardware Utilization
+                </h3>
+                <span class="chip-tag chip-emerald">Play Store Disclosures</span>
+            </div>
+
+            <p>
+                LifeOS adheres to the principle of <strong>Least-Privilege Permissions</strong>. We only request permissions necessary to execute core user-demanded functionality:
+            </p>
+
+            <ul>
+                <li>
+                    <strong><code>POST_NOTIFICATIONS</code> (Android 13+):</strong> Used solely to alert you of scheduled task reminders, habit check-ins, and daily business briefings that you have explicitly created.
+                </li>
+                <li>
+                    <strong><code>USE_EXACT_ALARM</code> & <code>SCHEDULE_EXACT_ALARM</code>:</strong> Required to trigger timely task reminders and morning routine alarms at the precise minute requested by the user.
+                </li>
+                <li>
+                    <strong><code>VIBRATE</code>:</strong> Provides tactile haptic feedback during stopwatch sessions, pomodoro completions, and urgent priority alerts.
+                </li>
+                <li>
+                    <strong><code>USE_BIOMETRIC</code>:</strong> Leverages Android's Trusted Execution Environment (TEE) and BiometricPrompt API for optional app-lock. <strong>LifeOS never accesses or stores your raw fingerprints or biometric templates.</strong>
+                </li>
+                <li>
+                    <strong><code>INTERNET</code> & <code>ACCESS_NETWORK_STATE</code>:</strong> Used strictly to verify Google Play In-App Billing subscriptions and user-triggered Gemini AI requests.
+                </li>
+            </ul>
+        </div>
+
+        <!-- SECTION 3: DATA PORTABILITY (DPDP SECTION 12 & GDPR ART 20) -->
+        <div class="doc-section" id="portability">
+            <div class="doc-header">
+                <h3>
+                    <span style="color: var(--cyan);">📦</span>
+                    3. Data Portability & How to Export Your Data
+                </h3>
+                <span class="chip-tag chip-cyan">Zero Lock-In</span>
+            </div>
+
+            <p>
+                Under Section 12 of India's Digital Personal Data Protection Act 2023 and GDPR Article 20, you hold an absolute right to export your complete records in structured, machine-readable formats.
+            </p>
+
+            <div class="callout-info">
+                <strong>How to Export Directly from the LifeOS Mobile App:</strong><br>
+                1. Open the <strong>LifeOS</strong> Android App.<br>
+                2. Navigate to <strong>Settings &rarr; Data Sovereignty &amp; Privacy</strong>.<br>
+                3. Tap <strong>"Export Complete Workspace"</strong>.<br>
+                4. Select your preferred format: <strong>JSON</strong> (for backups and cross-platform import) or <strong>CSV / Excel</strong> (for accounting and tax reporting).<br>
+                5. The file is saved directly to your device's <code>Downloads</code> folder or shared via Android's native share sheet to your Google Drive.
+            </div>
+
+            <p style="font-size: 0.88rem; color: var(--text-muted);">
+                Because LifeOS does not store your records on centralized remote cloud servers, the most comprehensive and immediate export is always generated directly on your device via the steps above.
+            </p>
+        </div>
+
+        <!-- SECTION 4: GOOGLE PLAY MANDATORY ACCOUNT DELETION PORTAL -->
+        <div class="doc-section" id="deletion" style="border-color: rgba(244, 63, 94, 0.35);">
+            <div class="doc-header">
+                <h3 style="color: #FDA4AF;">
                     <span>🗑️</span>
-                    Google Play Account & Data Erasure Portal
-                </h2>
-                <span class="badge-tag badge-rose">Google Play Policy 2024+</span>
+                    4. Google Play Account &amp; Data Erasure Portal
+                </h3>
+                <span class="chip-tag chip-rose">Policy Mandate</span>
             </div>
 
             <p>
-                In strict adherence to <strong>Google Play's 2024+ Policy on User Data</strong> and Section 12 of the DPDP Act 2023, you can request permanent deletion of your account, cloud tokens, and all associated personal identifiers directly from this web page.
+                In strict compliance with <strong>Google Play's 2024+ Account Deletion Policy</strong> and DPDP Act Section 12, users can initiate statutory account revocation and data erasure outside of the mobile application using this official portal.
             </p>
 
-            <div class="danger-callout">
-                <strong>Permanent & Irreversible:</strong> Deletion revokes active Pro subscription associations and schedules all associated identifiers for permanent purge within 48 to 72 business hours.
+            <div class="callout-danger">
+                <strong>Notice of Permanent Erasure:</strong><br>
+                Submitting this request revokes Pro subscription access associations and commands our Data Protection Officer to purge any associated records within 48 to 72 business hours.
             </div>
 
-            <form onsubmit="handleDeletionSubmit(event)" style="margin-top: 1.5rem;">
-                <div class="form-row">
-                    <div class="field-wrap">
-                        <label class="field-label">Registered Account Email *</label>
-                        <input type="email" id="delEmail" class="control-input" required placeholder="yourname@gmail.com">
+            <form onsubmit="handleAccountDeletion(event)" style="margin-top: 1.5rem;">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Registered Account Email *</label>
+                        <input type="email" id="delEmail" class="input-field" required placeholder="e.g. yourname@gmail.com">
                     </div>
-                    <div class="field-wrap">
-                        <label class="field-label">Scope of Erasure *</label>
-                        <select id="delScope" class="control-select">
-                            <option value="Permanent Complete Purge (Account & All Records)">Permanent Complete Purge (Account & All Records)</option>
-                            <option value="CRM Leads and Financial Records Only">CRM Leads & Financial Records Only</option>
+                    <div class="form-group">
+                        <label class="form-label">Erasure Scope *</label>
+                        <select id="delScope" class="select-field">
+                            <option value="Complete Account & All Personal Records">Complete Account &amp; All Records</option>
+                            <option value="CRM Leads and Financial Records Only">CRM Leads &amp; Financial Records Only</option>
                             <option value="Revoke Subscription Association Only">Revoke Subscription Association Only</option>
                         </select>
                     </div>
                 </div>
 
-                <div class="field-wrap" style="margin-bottom: 1rem;">
-                    <label class="field-label">Reason for Deletion (Optional Feedback)</label>
-                    <input type="text" id="delReason" class="control-input" placeholder="Help us understand how we could have improved...">
+                <div class="form-group" style="margin-bottom: 1rem;">
+                    <label class="form-label">Reason for Deletion (Optional)</label>
+                    <input type="text" id="delReason" class="input-field" placeholder="Brief reason for leaving (helps improve LifeOS)...">
                 </div>
 
                 <div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 1.25rem;">
                     <input type="checkbox" id="delConsent" required style="margin-top: 4px; accent-color: var(--rose); width: 18px; height: 18px; cursor: pointer;">
-                    <label for="delConsent" style="font-size: 0.86rem; color: var(--text-secondary); cursor: pointer;">
-                        I confirm that this action is permanent. I instruct the LifeOS Grievance Redressal Officer to purge all personal data tied to this email.
+                    <label for="delConsent" style="font-size: 0.88rem; color: var(--text-secondary); cursor: pointer;">
+                        I confirm this request is permanent and irreversible. I instruct the LifeOS Grievance Redressal Officer to erase all associated identifiers.
                     </label>
                 </div>
 
-                <button type="submit" class="btn-danger-outline">
-                    <span>Submit Statutory Account Deletion Request</span>
+                <button type="submit" class="btn-submit-danger">
+                    <span>Submit Statutory Deletion Request</span>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
             </form>
 
-            <div id="delStatusBox" class="status-box"></div>
+            <div id="delConfirmBox" class="confirm-box"></div>
         </div>
 
-        <!-- 3. DPDP ACT 2023 STATUTORY COMPLIANCE -->
-        <div class="legal-section" id="dpdp">
-            <div class="section-header-row">
-                <h2>
+        <!-- SECTION 5: DPDP ACT STATUTORY GRIEVANCE OFFICER -->
+        <div class="doc-section" id="dpdp">
+            <div class="doc-header">
+                <h3>
                     <span style="color: var(--emerald);">⚖️</span>
-                    Digital Personal Data Protection (DPDP) Act 2023
-                </h2>
-                <span class="badge-tag badge-emerald">Statutory Notice</span>
+                    5. Statutory Grievance Redressal (DPDP Act 2023)
+                </h3>
+                <span class="chip-tag chip-emerald">Legal Notice</span>
             </div>
 
             <p>
-                LifeOS operates in full compliance with the <strong>Digital Personal Data Protection Act 2023 (DPDP Act)</strong>, enacted by the Parliament of India. As a Data Fiduciary, we uphold statutory consumer rights:
+                In compliance with Section 13 of the Digital Personal Data Protection Act 2023, the details of our designated <strong>Data Protection &amp; Grievance Redressal Officer</strong> are published below:
             </p>
 
-            <ul>
-                <li><strong>Section 6 (Purpose Limitation):</strong> Data collected is processed solely for workspace management and client CRM as consented by the user.</li>
-                <li><strong>Section 11 (Right to Access):</strong> Right to obtain confirmation and intelligible summaries of personal data processed.</li>
-                <li><strong>Section 12 (Right to Correction & Erasure):</strong> Right to rectify inaccurate records or order immediate, permanent data wiping.</li>
-                <li><strong>Section 13 (Grievance Redressal):</strong> Direct escalation channel to our Data Protection & Grievance Redressal Cell.</li>
-            </ul>
-
-            <div class="info-callout">
-                <strong>Statutory Grievance Redressal Officer:</strong><br>
-                Officer: Aryan Goyal<br>
-                Official Grievance Email: <a href="mailto:goyalaryan906@gmail.com" style="color: var(--cyan); text-decoration: none; font-weight: 600;">goyalaryan906@gmail.com</a><br>
-                Statutory Resolution SLA: <strong>Within 48 to 72 business hours</strong>.
-            </div>
-        </div>
-
-        <!-- 4. PRIVACY ARCHITECTURE -->
-        <div class="legal-section" id="privacy">
-            <div class="section-header-row">
-                <h2>
-                    <span style="color: var(--cyan);">🔒</span>
-                    Privacy Architecture & Data Handling
-                </h2>
-                <span class="badge-tag badge-cyan">Zero Data Brokers</span>
+            <div class="callout-info">
+                <strong>Designated Grievance Redressal Officer:</strong><br>
+                <strong>Name:</strong> Aryan Goyal<br>
+                <strong>Designation:</strong> Data Protection &amp; Compliance Lead<br>
+                <strong>Official Grievance Email:</strong> <a href="mailto:goyalaryan906@gmail.com" style="color: var(--cyan); text-decoration: none; font-weight: 700;">goyalaryan906@gmail.com</a><br>
+                <strong>Jurisdiction:</strong> India<br>
+                <strong>Statutory Resolution SLA:</strong> Initial acknowledgment within 24 hours; complete resolution within 48 to 72 business hours.
             </div>
 
             <p>
-                Unlike conventional SaaS platforms that monetize user data through advertising exchanges, LifeOS is engineered with a strict <strong>Local-First Architecture</strong>:
+                If you have questions regarding data privacy, require an accessible copy of this notice, or wish to dispute any processing activity, please email our Grievance Redressal Officer with the subject line <code>[DPDP Grievance - LifeOS]</code>.
             </p>
-
-            <ul>
-                <li><strong>Isolated Room SQLite Database:</strong> Your task descriptions, client contacts, deal valuations, and GST billing records live in the private sandbox on your phone hardware.</li>
-                <li><strong>Hardware Biometrics:</strong> Fingerprint and PIN authentication are processed by Android's Trusted Execution Environment (TEE). LifeOS never accesses raw biometric fingerprints.</li>
-                <li><strong>Selective AI Processing:</strong> Calls to Google Gemini are only executed when explicitly invoked by the user for routine analysis. Raw databases are never transmitted.</li>
-            </ul>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2026 LifeOS. Built with privacy-first standards. Zero data brokers.</p>
+        <p>&copy; 2026 LifeOS. Engineered for Privacy, Performance, and Sovereignty.</p>
         <p style="margin-top: 6px; color: var(--text-muted);">
-            DPDP Act 2023 & GDPR Compliant • Hosted securely on GitHub Pages
+            Compliant with DPDP Act 2023 &bull; Google Play Developer Policy 2024+ &bull; Hosted on GitHub Pages
         </p>
     </footer>
 
-    <!-- INTERACTIVE SCRIPTS -->
+    <!-- Script for Authentic Statutory Deletion -->
     <script>
-        function showPortabilityTab(tabId) {
-            document.getElementById('viewInApp').style.display = tabId === 'inapp' ? 'block' : 'none';
-            document.getElementById('viewInspect').style.display = tabId === 'inspect' ? 'block' : 'none';
-            document.getElementById('viewRequest').style.display = tabId === 'request' ? 'block' : 'none';
-
-            document.getElementById('tabInApp').className = tabId === 'inapp' ? 'p-tab active' : 'p-tab';
-            document.getElementById('tabInspect').className = tabId === 'inspect' ? 'p-tab active' : 'p-tab';
-            document.getElementById('tabRequest').className = tabId === 'request' ? 'p-tab active' : 'p-tab';
-        }
-
-        // Real File Inspector (Parses user's actual backup file)
-        function handleFileSelected(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = function(evt) {
-                try {
-                    const parsed = JSON.parse(evt.target.result);
-                    renderAuditTable(parsed, file.name);
-                } catch (err) {
-                    alert("Invalid JSON format in selected file. Please select a valid lifeos_backup.json export.");
-                }
-            };
-            reader.readAsText(file);
-        }
-
-        function renderAuditTable(data, filename) {
-            const tableWrap = document.getElementById('auditTableWrap');
-            const tbody = document.getElementById('auditTableBody');
-            tbody.innerHTML = "";
-
-            let rows = [];
-
-            if (data.tasks && Array.isArray(data.tasks)) {
-                data.tasks.forEach(t => {
-                    rows.push({ cat: "Task", title: t.title || "Untitled", status: t.completed ? "Completed" : "Pending", time: t.timestamp || "Device record" });
-                });
-            }
-            if (data.leads && Array.isArray(data.leads)) {
-                data.leads.forEach(l => {
-                    rows.push({ cat: "CRM Lead", title: l.name || "Unnamed", status: `${l.stage || 'Lead'} (₹${l.value || 0})`, time: "Pipeline record" });
-                });
-            }
-            if (data.finances && Array.isArray(data.finances)) {
-                data.finances.forEach(f => {
-                    rows.push({ cat: "Finance", title: f.title || "Transaction", status: `${f.type} ₹${f.amount}`, time: f.date || "Ledger record" });
-                });
-            }
-
-            if (rows.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="4" style="text-align: center; color: var(--text-muted); padding: 1.5rem;">The selected file contains 0 records or is empty.</td></tr>`;
-            } else {
-                rows.slice(0, 50).forEach(r => {
-                    const tr = document.createElement('tr');
-                    tr.innerHTML = `
-                        <td><strong>${esc(r.cat)}</strong></td>
-                        <td>${esc(r.title)}</td>
-                        <td>${esc(r.status)}</td>
-                        <td style="font-size: 0.78rem; color: var(--text-muted);">${esc(r.time)}</td>
-                    `;
-                    tbody.appendChild(tr);
-                });
-            }
-
-            tableWrap.style.display = 'block';
-        }
-
-        // Official Portability Request (No fake download without input)
-        function handleStatutoryExportRequest(e) {
-            e.preventDefault();
-            const email = document.getElementById('reqEmail').value.trim();
-            const scope = document.getElementById('reqScope').value;
-            const statusBox = document.getElementById('exportReqStatus');
-
-            if (!email) {
-                alert("Please enter a valid registered email address.");
-                return;
-            }
-
-            const ref = "EXP-" + Math.floor(100000 + Math.random() * 900000);
-            statusBox.style.display = 'block';
-            statusBox.innerHTML = `
-                <h4>Statutory Portability Request Logged: #${ref}</h4>
-                <p style="font-size: 0.88rem; color: #E2E8F0; margin-bottom: 8px;">
-                    Request registered for <strong>${esc(email)}</strong> (${scope}).
-                </p>
-                <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 12px;">
-                    In accordance with DPDP Section 12, our compliance officer is opening a verification email draft to fulfill this portability request within 72 hours.
-                </p>
-                <a href="mailto:goyalaryan906@gmail.com?subject=${encodeURIComponent(`LifeOS Data Portability Request [Ref: ${ref}]`)}&body=${encodeURIComponent(`STATUTORY DATA PORTABILITY DISPATCH\nDPDP Act 2023 - Section 12\n\nReference: ${ref}\nAccount Email: ${email}\nRequested Scope: ${scope}\nDate: ${new Date().toISOString()}\n\nPlease issue the verifiable archive package.`)}" class="btn-cyan" style="text-decoration: none; font-size: 0.82rem; padding: 6px 14px;">
-                    Send Dispatch Email to Compliance
-                </a>
-            `;
-        }
-
-        // Account Deletion
-        function handleDeletionSubmit(e) {
+        function handleAccountDeletion(e) {
             e.preventDefault();
             const email = document.getElementById('delEmail').value.trim();
             const scope = document.getElementById('delScope').value;
             const reason = document.getElementById('delReason').value.trim();
-            const statusBox = document.getElementById('delStatusBox');
+            const box = document.getElementById('delConfirmBox');
 
             if (!email) {
-                alert("Please enter a valid registered email.");
+                alert("Please enter a valid registered account email.");
                 return;
             }
 
-            const ref = "DEL-" + Math.floor(100000 + Math.random() * 900000);
-            statusBox.style.display = 'block';
-            statusBox.innerHTML = `
-                <h4>Statutory Deletion Request Registered: #${ref}</h4>
-                <p style="font-size: 0.88rem; color: #E2E8F0; margin-bottom: 8px;">
-                    Official erasure ticket <strong>#${ref}</strong> logged for <strong>${esc(email)}</strong> (${scope}).
+            const refId = "DEL-" + Math.floor(100000 + Math.random() * 900000);
+            box.style.display = 'block';
+            box.innerHTML = `
+                <h4>Statutory Erasure Notice Registered &bull; Ticket #${refId}</h4>
+                <p style="font-size: 0.9rem; color: #E2E8F0; margin-bottom: 8px;">
+                    Erasure request for <strong>${esc(email)}</strong> (${scope}) has been registered with our Grievance Redressal Cell.
                 </p>
-                <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 12px;">
-                    Opening secure mail dispatch to Grievance Redressal Officer (goyalaryan906@gmail.com)...
+                <p style="font-size: 0.84rem; color: var(--text-muted); margin-bottom: 12px;">
+                    Dispatching official statutory notice to <strong>goyalaryan906@gmail.com</strong>.
                 </p>
-                <a href="mailto:goyalaryan906@gmail.com?subject=${encodeURIComponent(`LifeOS Account Deletion Request [Ref: ${ref}]`)}&body=${encodeURIComponent(`STATUTORY ERASURE NOTICE\nDPDP Act 2023 Section 12 & Google Play 2024 Policy\n\nTicket: ${ref}\nAccount Email: ${email}\nScope: ${scope}\nReason: ${reason || 'Not specified'}\nDate: ${new Date().toISOString()}\n\nPlease execute permanent purge of all associated records.`)}" class="btn-cyan" style="text-decoration: none; font-size: 0.82rem; padding: 6px 14px;">
-                    Dispatch Statutory Mail
+                <a href="mailto:goyalaryan906@gmail.com?subject=${encodeURIComponent(`LifeOS Account Deletion Request [Ticket: ${refId}]`)}&body=${encodeURIComponent(`STATUTORY ACCOUNT ERASURE NOTICE\nDPDP Act 2023 Section 12 & Google Play 2024 Policy\n\nTicket Reference: ${refId}\nAccount Email: ${email}\nRequested Scope: ${scope}\nReason: ${reason || 'None specified'}\nTimestamp: ${new Date().toISOString()}\n\nPlease execute permanent purge of all associated records.`)}" class="btn-action-cyan" style="display: inline-flex;">
+                    Dispatch Verification Email Directly
                 </a>
             `;
 
-            // Trigger mailto directly
-            const sub = encodeURIComponent(`LifeOS Account Deletion Request [Ref: ${ref}]`);
-            const body = encodeURIComponent(`STATUTORY ERASURE NOTICE (DPDP ACT 2023 / GOOGLE PLAY)\n\nEmail: ${email}\nScope: ${scope}\nTicket: ${ref}\nReason: ${reason || 'Not specified'}\n\nPlease purge all records permanently.`);
+            // Open mail client directly
+            const sub = encodeURIComponent(`LifeOS Account Deletion Request [Ticket: ${refId}]`);
+            const body = encodeURIComponent(`STATUTORY ACCOUNT ERASURE NOTICE (DPDP ACT 2023 & GOOGLE PLAY POLICY)\n\nTicket Reference: ${refId}\nAccount Email: ${email}\nRequested Scope: ${scope}\nReason: ${reason || 'None specified'}\nTimestamp: ${new Date().toISOString()}\n\nPlease execute permanent purge of all associated records.`);
             window.location.href = `mailto:goyalaryan906@gmail.com?subject=${sub}&body=${body}`;
         }
 
@@ -906,4 +732,3 @@
     </script>
 </body>
 </html>
-

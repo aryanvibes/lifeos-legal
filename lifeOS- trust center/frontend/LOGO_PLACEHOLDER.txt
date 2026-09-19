@@ -1,1 +1,0 @@
-Copy the existing LifeOS logo.png from the lifeos-legal repository into this folder and remove this file.
